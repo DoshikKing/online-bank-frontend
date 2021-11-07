@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body style="display: flex; justify-content: center; text-align: center; padding-top: 15%">
+    <div class="record" style="width: 18rem;">
+        <div class="record-body">
+            <form method="post" action="./registration">
+                <div class="mb-3">
+                    <label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login" placeholder="Логин...">
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль...">
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                        <input type="text" class="form-control" id="exampleInputRepeatPassword" name="repass" placeholder="Повторите пароль...">
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                        <input type="text" class="form-control" id="exampleRegistrationCode" name="registration_code" placeholder="Введите регистрационный код..." maxlength="8">
+                    </label>
+                </div>
+                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+            </form>
+            <h1 th:text="${status}"></h1>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>
