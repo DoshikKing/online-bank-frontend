@@ -1,8 +1,6 @@
 package com.banksource.onlinebank.work;
 
-import com.banksource.onlinebank.components.Account;
-import com.banksource.onlinebank.components.BankCard;
-import com.banksource.onlinebank.components.Shop;
+import com.banksource.onlinebank.components.*;
 import com.banksource.onlinebank.components.Record;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -147,7 +145,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (BankCard item: list) {
-            buff += "<tr><td>" + item.getCode() + "</td><td>" + item.getSumm() +"</td><td><a href=\"payment.html?type=card&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=card&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=card&id=" + item.getId() + "\"></a></td></td></tr>";
+            buff += "<tr><td>" + item.getCode() + "</td><td>" + item.getSumm() +"</td><td><a href=\"payment.html?type=card&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=card&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=card&id=" + item.getId() + "\"></a></td></tr>";
             i++;
         }
         if (i == 0)
@@ -171,7 +169,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (Account item: list) {
-            buff += "<tr><td>" + item.getAccount_number() + "</td><td>" + item.getBalance() +"</td><td><a href=\"payment.html?type=account&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=account&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=account&id=" + item.getId() + "\"></a></td></td></tr>";
+            buff += "<tr><td>" + item.getAccount_number() + "</td><td>" + item.getBalance() +"</td><td><a href=\"payment.html?type=account&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=account&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=account&id=" + item.getId() + "\"></a></td></tr>";
             i++;
         }
         if (i == 0)
@@ -200,6 +198,51 @@ public class WorkFlow {
             buff += "<option value='" + item.getId() + "' " + (exclude_id.equals(item.getId()) ? "selected" : "") + ">" + item.getAccount_number() + "</option>";
         }
 
+        return buff;
+    }
+
+    public String printAccountTransactions(List<Transaction> list){
+        int i = 0;
+        String buff = "<table style='color: black; text-align: center' class='table'> <thead>" +
+                "    <tr>" +
+                "      <th scope='col'>Номер счета</th>" +
+                "      <th scope='col'>Сумма перевода</th>" +
+                "      <th scope='col'>Дата</th>" +
+                "    </tr>" +
+                "  </thead>" +
+                "<tbody>";
+        for (Transaction item: list) {
+            buff += "<tr><td>" + item.getAccount().getAccount_number() + "</td><td>" + item.getSumm() +"</td>"+ item.getTransaction_time() +"</tr>";
+            i++;
+        }
+        if (i == 0)
+        {
+            return "";
+        }
+        buff += "</tbody>" +
+                "</table>";
+        return buff;
+    }
+    public String printCardTransactions(List<CardTransaction> list){
+        int i = 0;
+        String buff = "<table style='color: black; text-align: center' class='table'> <thead>" +
+                "    <tr>" +
+                "      <th scope='col'>Номер карты</th>" +
+                "      <th scope='col'>Сумма перевода</th>" +
+                "      <th scope='col'>Дата</th>" +
+                "    </tr>" +
+                "  </thead>" +
+                "<tbody>";
+        for (CardTransaction item: list) {
+            buff += "<tr><td>" + item.getBankCard().getCode() + "</td><td>" + item.getSumm() +"</td>"+ item.getTransaction_time() +"</tr>";
+            i++;
+        }
+        if (i == 0)
+        {
+            return "";
+        }
+        buff += "</tbody>" +
+                "</table>";
         return buff;
     }
 }

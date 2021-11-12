@@ -235,6 +235,52 @@ public class mainController {
         }
         return "redirect:/success";
     }
+
+    @GetMapping("/abstract")
+    public String getAbstract(@RequestParam String type, @RequestParam String debit_id,
+                          Authentication authentication, Model model){
+        String username = authentication.getName();
+        User user = userService.findUser(username);
+
+        if(!check(user, type, Long.parseLong(debit_id))){
+            ServletRequestAttributes attr = (ServletRequestAttributes)
+                    RequestContextHolder.currentRequestAttributes();
+            HttpSession session= attr.getRequest().getSession();
+            session.invalidate();
+            model.asMap().clear();
+            return "redirect:/logout";
+        }
+
+        String debit_transactions_list = "";
+
+        if (type.equals("card")){
+            BankCard bankCard;
+            if(!debit_id.isEmpty())
+            {
+                bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
+                debit_transactions_list = workFlow.printCardTransactions(bankCard.getCardTransactionsList());
+            }
+            else {
+                debit_transactions_list = "No transactions!";
+            }
+        }
+
+        if (type.equals("account")) {
+            Account account;
+            if(!debit_id.isEmpty())
+            {
+                account = accountService.findById(Long.parseLong(debit_id));
+                debit_transactions_list = workFlow.printAccountTransactions(account.getTransactions());
+            }
+            else {
+                debit_transactions_list = "No transactions!";
+            }
+        }
+
+        model.addAttribute("debit_transactions_list", debit_transactions_list);
+
+        return "abstract";
+    }
 //
 //
 //    public String welcome(){
