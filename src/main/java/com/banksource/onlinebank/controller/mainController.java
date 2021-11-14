@@ -49,32 +49,24 @@ public class mainController {
         this.cardTransactionService = cardTransactionService;
     }
 
-    @GetMapping("/forward")
-    public String forward(Authentication authentication, Model model){
-        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("USER"))) {
-            model.addAttribute("content", "2, /home");
-        }
-        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("ADMIN"))) {
-            model.addAttribute("content", "5, /admin");
-        }
-        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("STAFF"))) {
-            model.addAttribute("content", "5, /staff");
-        }
-        return "forward";
-    }
-
-    @GetMapping("/admin")
-    public String admin(){
-        return "admin";
-    }
-
-    @GetMapping("/staff")
-    public String staff(Model model){
-        String buff = "";
-        buff += workFlow.printRecordsStaff(recordService.getAllRecords());
-        model.addAttribute("buff", buff);
-        return "staff";
-    }
+//    @GetMapping("/forward")
+//    public String forward(Authentication authentication, Model model){
+//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("USER"))) {
+//            model.addAttribute("content", "2, /home");
+//        }
+//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("ADMIN"))) {
+//            model.addAttribute("content", "5, /admin");
+//        }
+//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("STAFF"))) {
+//            model.addAttribute("content", "5, /staff");
+//        }
+//        return "forward";
+//    }
+//
+//    @GetMapping("/admin")
+//    public String admin(){
+//        return "admin";
+//    }
 
     @GetMapping("/home")
     public String home(Authentication authentication, Model model){
@@ -86,11 +78,8 @@ public class mainController {
         String accountListHtml = "";
         cardListHtml += workFlow.printCards(bankCardList);
         accountListHtml += workFlow.printAccount(accountList);
-//        buff += workFlow.printRecords(userService.findUser(username).getRecordList());
         model.addAttribute("cardListHtml", cardListHtml);
         model.addAttribute("accountListHtml",accountListHtml);
-//        model.addAttribute("currentDate", LocalDate.now().toString());
-//        model.addAttribute("types", workFlow.typesOfShops(shopService.getAllShops()));
         return "home";
     }
 
@@ -281,111 +270,5 @@ public class mainController {
 
         return "abstract";
     }
-//
-//
-//    public String welcome(){
-//        return "welcome";
-//    }
-//    @GetMapping("/errorPage")
-//    public String error(){
-//        return "errorPage";
-//    }
-//    @GetMapping("/shopErrorPage")
-//    public String errorShop(){
-//        return "shopErrorPage";
-//    }
-//
-//    @GetMapping("/home/show")
-//    public @ResponseBody String show(){
-//        String buff = "";
-//        buff += workFlow.printShopsAdmin(shopService.getAllShops());
-//        buff += workFlow.printRecordsAdmin(recordService.getAllRecords());
-//        return buff;
-//    }
-//
-//    @PostMapping("/home/addShop")
-//    public String add(@RequestParam String name,
-//                      @RequestParam String address){
-//
-//        for (Shop item:shopService.getAllShops()) {
-//            if(item.getName().equals(name) && item.getAddress().equals(address)){
-//                return "redirect:/shopErrorPage";
-//            }
-//        }
-//
-//        Shop shop = new Shop();
-//        shop.setName(name);
-//        shop.setAddress(address);
-//        shopService.addShop(shop);
-//        return "redirect:/forward";
-//    }
-//    @PostMapping("/home/addRecord")
-//    public String add(@RequestParam String selectedDate,
-//                      @RequestParam String selectedTime, String shopName, Authentication authentication, Model model){
-//        Record record = new Record();
-//        Shop shop = shopService.getShopById(shopService.getBankId(shopName));
-//        User user = userService.findUser(authentication.getName());
-//
-//        for (Record item:recordService.getAllRecords()) {
-//            if(item.getDate().equals(selectedDate) && item.getTime().equals(selectedTime)){
-//                return "redirect:/errorPage";
-//            }
-//        }
-//
-//        record.setDate(selectedDate);
-//        record.setTime(selectedTime);
-//        record.user = user;
-//        record.shop = shop;
-//        recordService.addRecord(record);
-//        shop.setRecordList(recordService.getAllRecords());
-//        user.setRecordList(recordService.getAllRecords());
-//        return "redirect:/forward";
-//    }
-//    @GetMapping("/home/removeRecord")
-//    public String removeCards(@RequestParam Long id){
-//        recordService.deleteRecordById(id);
-//        return "redirect:/forward";
-//    }
-//    @GetMapping("/home/removeShop")
-//    public String removeBanks(@RequestParam Long id){
-//        shopService.deleteShopById(id);
-//        return "redirect:/forward";
-//    }
-//    @GetMapping("/home/getRecordShop")
-//    public @ResponseBody String getRecordShop(@RequestParam Long id){
-//        return "name:" + recordService.getShopByRecord(id).getName() + " address:" + recordService.getShopByRecord(id).getAddress() + " id:" + recordService.getShopByRecord(id).getId();
-//    }
-//
-//    @GetMapping("/home/getShopByName")
-//    public @ResponseBody
-//    String getShopByName(){
-//        return workFlow.printShopsAdmin(shopService.filterByName());
-//    }
-//    @GetMapping("/home/getShopById")
-//    public @ResponseBody
-//    String getShopById(){
-//        return workFlow.printShopsAdmin(shopService.filterByShopId());
-//    }
-//    @GetMapping("/home/getShopByAddress")
-//    public @ResponseBody
-//    String getShopByAddress(){
-//        return workFlow.printShopsAdmin(shopService.filterByAddress());
-//    }
-//    @GetMapping("/home/getRecordById")
-//    public @ResponseBody
-//    String getRecordById(){
-//        return workFlow.printRecordsAdmin(recordService.filterByRecordId());
-//    }
-//    @GetMapping("/home/getRecordByTime")
-//    public @ResponseBody
-//    String getRecordByTime(){
-//        return workFlow.printRecordsAdmin(recordService.filterByTime());
-//    }
-//    @GetMapping("/home/getRecordByDate")
-//    public @ResponseBody
-//    String getRecordByDate(){
-//        return workFlow.printRecordsAdmin(recordService.filterByDate());
-//    }
-
 }
 
