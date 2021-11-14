@@ -20,9 +20,9 @@ public class BankCard {
     @Column(name = "balance", nullable = false, length = 12, precision = 2)
     private Long summ;
     @Column(name = "status_time", nullable = false)
-    private Date status_time;
+    private Date statusTime;
     @Column(name = "limit_per_day", nullable = false, length = 12, precision = 2)
-    private float limit_per_day;
+    private float limitPerDay;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)
@@ -36,6 +36,6 @@ public class BankCard {
     @JoinColumn(name = "pay_system_id", nullable = false)
     public PaySystem paySystem;
 
-    @OneToMany(mappedBy = "card_transactions_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bankCard", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CardTransaction> cardTransactionsList;
 }

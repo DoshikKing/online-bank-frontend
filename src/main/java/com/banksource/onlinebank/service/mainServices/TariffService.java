@@ -24,7 +24,7 @@ public class TariffService implements tariffServiceInterface{
     @Override
     public Tariff findByTariffName(String name) {
         log.info("Found tariff by tariff name {}", name);
-        return tariffRepo.findByTariff_name(name);
+        return tariffRepo.findByTariffName(name);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class TariffService implements tariffServiceInterface{
     @Override
     public Tariff findByTariffPercentage(float percentage) {
         log.info("Found tariff by tariff percentage {}", percentage);
-        return tariffRepo.findByTariff_percentage(percentage);
+        return tariffRepo.findByTariffPercentage(percentage);
     }
 }

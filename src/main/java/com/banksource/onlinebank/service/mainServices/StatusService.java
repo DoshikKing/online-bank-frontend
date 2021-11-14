@@ -24,7 +24,7 @@ public class StatusService implements statusServiceInterface{
     @Override
     public Status findByStatusName(String name) {
         log.info("Found status by name {}", name);
-        return statusRepo.findByStatus_name(name);
+        return statusRepo.findByStatusName(name);
     }
 
     @Override

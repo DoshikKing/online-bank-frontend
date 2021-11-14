@@ -32,12 +32,6 @@ public class CardTransactionService implements cardTransactionsServiceInterface{
     }
 
     @Override
-    public List<CardTransaction> filterByBankCardId(Long id) {
-        log.info("Found all transactions by bank card id {}", id);
-        return cardTransactionsRepo.findByOrderByBankCardId(id);
-    }
-
-    @Override
     public CardTransaction findById(Long id) {
         log.info("Found card transaction with id {}", id);
         return cardTransactionsRepo.getById(id);
@@ -52,7 +46,7 @@ public class CardTransactionService implements cardTransactionsServiceInterface{
     @Override
     public CardTransaction findByTransactionGroup(String transaction_group) {
         log.info("Found card transaction by transaction group code {}", transaction_group);
-        return cardTransactionsRepo.findByTransaction_group(transaction_group);
+        return cardTransactionsRepo.findByTransactionGroup(transaction_group);
     }
 
     @Override

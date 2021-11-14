@@ -23,7 +23,7 @@ public class User implements Serializable {
     private boolean is_activated;
 
     @Column(name = "registration_code",length = 8,nullable = false)
-    private String registration_code;
+    private String registrationCode;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)

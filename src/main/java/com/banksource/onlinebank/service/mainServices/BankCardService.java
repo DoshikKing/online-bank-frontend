@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @Slf4j
 @Component
@@ -26,12 +24,6 @@ public class BankCardService implements bankCardServiceInterface{
     public void addCard(BankCard bankCard) {
         log.info("Added new bank card {}", bankCard);
         bankCardRepo.save(bankCard);
-    }
-
-    @Override
-    public List<BankCard> filterByClientId(Long id) {
-        log.info("Found all bank cards by clients id {}", id);
-        return bankCardRepo.findByOrderByClientId(id);
     }
 
     @Override

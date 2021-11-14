@@ -16,6 +16,6 @@ public class PaySystem {
     @Column(name = "type", nullable = false, length = 30)
     private String type;
 
-    @OneToOne(mappedBy = "pay_system", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "paySystem", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public BankCard bankCard;
 }

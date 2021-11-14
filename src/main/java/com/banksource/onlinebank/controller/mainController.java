@@ -1,33 +1,25 @@
 package com.banksource.onlinebank.controller;
 
 import com.banksource.onlinebank.components.*;
-import com.banksource.onlinebank.components.Record;
 import com.banksource.onlinebank.service.mainServices.*;
 import com.banksource.onlinebank.work.WorkFlow;
-import org.hibernate.id.GUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 @Controller
 public class mainController {
     private boolean flag = false;
-    private ShopService shopService;
-    private RecordService recordService;
     private RoleService roleService;
     private com.banksource.onlinebank.service.mainServices.userService userService;
     private WorkFlow workFlow;
@@ -37,10 +29,8 @@ public class mainController {
     private AccountService accountService;
 
     @Autowired
-    public mainController(RecordService recordService, ShopService shopService, userService userService, RoleService roleService, BankCardService bankCardService, AccountService accountService, TransactionService transactionService, CardTransactionService cardTransactionService, WorkFlow workFlow) {
-        this.shopService = shopService;
+    public mainController( userService userService, RoleService roleService, BankCardService bankCardService, AccountService accountService, TransactionService transactionService, CardTransactionService cardTransactionService, WorkFlow workFlow) {
         this.roleService = roleService;
-        this.recordService = recordService;
         this.userService = userService;
         this.workFlow = workFlow;
         this.bankCardService = bankCardService;
@@ -71,7 +61,7 @@ public class mainController {
     @GetMapping("/home")
     public String home(Authentication authentication, Model model){
         String username = authentication.getName();
-        model.addAttribute("username", userService.findUser(username).getClient().getClient_name());
+        model.addAttribute("username", userService.findUser(username).getClient().getClientName());
         List<BankCard> bankCardList = userService.findUser(username).getClient().getBankCard();
         List<Account> accountList = userService.findUser(username).getClient().getAccount();
         String cardListHtml = "";
@@ -187,17 +177,17 @@ public class mainController {
             CardTransaction debitCardTransaction = new CardTransaction();
             debitCardTransaction.setBankCard(bankCardService.getCardById(Long.parseLong(debit_id)));
             debitCardTransaction.setSumm(-sum);
-            debitCardTransaction.setTransaction_time(date);
-            debitCardTransaction.setIs_debit(true);
-            debitCardTransaction.setTransaction_group(uuid);
+            debitCardTransaction.setTransactionTime(date);
+            debitCardTransaction.setIsDebit(true);
+            debitCardTransaction.setTransactionGroup(uuid);
             debitCardTransaction.setComment(comment);
 
             CardTransaction creditCardTransaction = new CardTransaction();
             creditCardTransaction.setBankCard(bankCardService.getCardById(Long.parseLong(credit_id)));
             creditCardTransaction.setSumm(sum);
-            creditCardTransaction.setTransaction_time(date);
-            creditCardTransaction.setIs_debit(false);
-            creditCardTransaction.setTransaction_group(uuid);
+            creditCardTransaction.setTransactionTime(date);
+            creditCardTransaction.setIsDebit(false);
+            creditCardTransaction.setTransactionGroup(uuid);
             creditCardTransaction.setComment(comment);
 
             cardTransactionService.addCardTransaction(debitCardTransaction, creditCardTransaction);
@@ -207,17 +197,17 @@ public class mainController {
             Transaction debitTransaction = new Transaction();
             debitTransaction.setAccount(accountService.findById(Long.parseLong(debit_id)));
             debitTransaction.setSumm(-sum);
-            debitTransaction.setTransaction_time(date);
-            debitTransaction.setIs_debit(true);
-            debitTransaction.setTransaction_group(uuid);
+            debitTransaction.setTransactionTime(date);
+            debitTransaction.setIsDebit(true);
+            debitTransaction.setTransactionGroup(uuid);
             debitTransaction.setComment(comment);
 
             Transaction creditTransaction = new Transaction();
             creditTransaction.setAccount(accountService.findById(Long.parseLong(credit_id)));
             creditTransaction.setSumm(sum);
-            creditTransaction.setTransaction_time(date);
-            creditTransaction.setIs_debit(false);
-            creditTransaction.setTransaction_group(uuid);
+            creditTransaction.setTransactionTime(date);
+            creditTransaction.setIsDebit(false);
+            creditTransaction.setTransactionGroup(uuid);
             creditTransaction.setComment(comment);
 
             transactionService.addTransaction(debitTransaction, creditTransaction);

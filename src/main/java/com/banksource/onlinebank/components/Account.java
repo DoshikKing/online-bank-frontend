@@ -17,25 +17,25 @@ public class Account {
     private Long id;
 
     @Column(name = "account_number", nullable = false)
-    private String account_number;
+    private String accountNumber;
 
     @Column(name = "account_name", nullable = false)
-    private String account_name;
+    private String accountName;
 
     @Column(name = "is_credit",nullable = false)
-    private Boolean is_credit;
+    private Boolean isCredit;
 
     @Column(name = "open_date",nullable = false)
-    private Date open_date;
+    private Date openDate;
 
     @Column(name = "status_time",nullable = false)
-    private Date status_time;
+    private Date statusTime;
 
     @Column(name = "balance",nullable = false)
     private float balance;
 
     @Column(name = "limit_per_day")
-    private float limit_per_day;
+    private float limitPerDay;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)

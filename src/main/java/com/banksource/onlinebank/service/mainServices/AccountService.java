@@ -30,13 +30,13 @@ public class AccountService implements accountServiceInterface{
     @Override
     public Account findByAccountName(String name) {
         log.info("Found account with name {}", name);
-        return accountRepo.findByAccount_name(name);
+        return accountRepo.findByAccountName(name);
     }
 
     @Override
     public Account findByAccountNumber(String number) {
         log.info("Found account with number {}", number);
-        return accountRepo.findByAccount_number(number);
+        return accountRepo.findByAccountNumber(number);
     }
 
     @Override

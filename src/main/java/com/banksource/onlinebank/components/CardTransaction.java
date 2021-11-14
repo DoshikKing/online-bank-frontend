@@ -20,11 +20,11 @@ public class CardTransaction {
     @Column(name = "amount", nullable = false)
     private Long summ;
     @Column(name = "is_debit")
-    private Boolean is_debit;
+    private Boolean isDebit;
     @Column(name = "transaction_time", nullable = false)
-    private Date transaction_time;
+    private Date transactionTime;
     @Column(name = "transaction_group", nullable = false)
-    private String transaction_group;
+    private String transactionGroup;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "card_id", nullable = false)

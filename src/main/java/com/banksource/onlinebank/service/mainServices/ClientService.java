@@ -24,7 +24,7 @@ public class ClientService implements clientServiceInterface{
     @Override
     public Client findByClientName(String name) {
         log.info("Found client by name {}", name);
-        return clientRepo.findByClient_name(name);
+        return clientRepo.findByClientName(name);
     }
 
     @Override

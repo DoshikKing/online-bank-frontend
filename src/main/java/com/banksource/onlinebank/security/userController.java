@@ -47,7 +47,7 @@ public class userController {
             return "registration";
         }
 
-        if(!user.getClient().is_activated()){
+        if(!user.getClient().isActivated()){
             model.addAttribute("status","IB service is not activated! Contact with operational office for more information.");
             return "registration";
         }
@@ -57,7 +57,7 @@ public class userController {
             return "registration";
         }
 
-        if(!signUpRequest.getRegistration_code().equals(user.getRegistration_code())){
+        if(!signUpRequest.getRegistration_code().equals(user.getRegistrationCode())){
             model.addAttribute("status","Control registration code is failed.");
             return "registration";
         }

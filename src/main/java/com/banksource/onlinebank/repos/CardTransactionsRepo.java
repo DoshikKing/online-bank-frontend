@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CardTransactionsRepo extends JpaRepository<CardTransaction, Long> {
-    CardTransaction findByTransaction_group(String id);
-    List<CardTransaction> findByOrderByBankCardId(Long id);
+    CardTransaction findByTransactionGroup(String id);
     CardTransaction findByBankCardId(Long id);
 }

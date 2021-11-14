@@ -32,12 +32,6 @@ public class TransactionService implements transactionServiceInterface{
     }
 
     @Override
-    public List<Transaction> filterByAccountId(Long id) {
-        log.info("Found all transactions by account id {}", id);
-        return transactionsRepo.findByOrderByAccountId(id);
-    }
-
-    @Override
     public Transaction getTransactionByAccountId(Long id) {
         log.info("Found transaction by related account id");
         return transactionsRepo.findByAccountId(id);
@@ -46,7 +40,7 @@ public class TransactionService implements transactionServiceInterface{
     @Override
     public Transaction getTransactionByTransactionGroup(String transaction_group) {
         log.info("Found transaction by transaction group code");
-        return transactionsRepo.findByTransaction_group(transaction_group);
+        return transactionsRepo.findByTransactionGroup(transaction_group);
     }
 
     @Override

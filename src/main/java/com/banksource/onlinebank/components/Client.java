@@ -18,13 +18,13 @@ public class Client implements Serializable {
     private Long id;
 
     @Column(name = "client_name", nullable = false)
-    private String client_name;
+    private String clientName;
     @Column(name = "birthday", nullable = false)
     private Date birthday;
     @Column(name = "address", nullable = false)
     private String address;
     @Column(name = "is_activated")
-    private boolean is_activated;
+    private boolean isActivated;
 
     @OneToOne(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public User user;

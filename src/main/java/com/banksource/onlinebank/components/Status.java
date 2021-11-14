@@ -16,7 +16,7 @@ public class Status implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "status_name", nullable = false)
-    private String status_name;
+    private String statusName;
 
     @OneToMany(mappedBy = "status", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Client> clients;

@@ -16,9 +16,9 @@ public class Tariff {
     private Long id;
 
     @Column(name = "tariff_name", nullable = false)
-    private String tariff_name;
+    private String tariffName;
     @Column(name = "tariff_percentage", nullable = false)
-    private float tariff_percentage;
+    private float tariffPercentage;
 
     @OneToMany(mappedBy = "tariff", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Account> accounts;
