@@ -15,10 +15,10 @@ public class BankCard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "card_hash_number", unique = true, length = 16)
+    @Column(name = "card_hash_number", unique = true, nullable = false, length = 16)
     private String code;
     @Column(name = "balance", nullable = false, length = 12, precision = 2)
-    private Long summ;
+    private float summ;
     @Column(name = "status_time", nullable = false)
     private Date statusTime;
     @Column(name = "limit_per_day", nullable = false, length = 12, precision = 2)

@@ -8,14 +8,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "bank_user")
 @Getter
 @Setter
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "login",nullable = false)
+    @Column(name = "login",unique = true ,nullable = false)
     private String login;
     @Column(name = "password",nullable = false)
     private String password;

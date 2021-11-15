@@ -68,4 +68,9 @@ public class AccountService implements accountServiceInterface{
         log.info("Deleted all accounts");
         accountRepo.deleteAll();
     }
+
+    @Override
+    public void updateById(float summ, Long id) {
+        accountRepo.setAccountInfoById(summ, id);
+    }
 }

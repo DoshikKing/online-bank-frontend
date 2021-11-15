@@ -39,6 +39,7 @@
                                         <div class="row row-cols-1" style="width: 120%; display: flex">
                                             <div class="col-sm">
                                                 <label>
+                                                    <p>Откуда</p>
                                                     <select class="form-control" name="debit_id">
                                                         <p th:utext="${debit_id}">
                                                     </select>
@@ -48,6 +49,7 @@
                                         <div class="row row-cols-1" style="width: 120%; display: flex">
                                             <div class="col-sm">
                                                 <label>
+                                                    <p>Куда</p>
                                                     <select class="form-control" name="credit_id">
                                                         <p th:utext="${credit_id}">
                                                     </select>
@@ -56,13 +58,13 @@
                                         </div>
                                         <div class="row row-cols-1" style="width: 120%; display: flex">
                                             <div class="col-sm">
-                                                <input name="amount" type="text">
-                                                <p th:utext="${type}">
+                                                <input placeholder="Сумма" name="amount" type="text">
+                                                <p th:utext="${type}" hidden="true">
                                             </div>
                                         </div>
                                         <div class="row row-cols-1" style="width: 120%; display: flex">
                                             <div class="col-sm">
-                                                <input name="comment" type="text">
+                                                <input placeholder="Комментарий платежа..." name="comment" type="text">
                                             </div>
                                         </div>
                                         <div class="row row-cols-1" style="width: 120%; display: flex">

@@ -8,4 +8,5 @@ public interface userServiceInterface {
     User findUser(String login);
     User findByClientId(Long id);
     UserDetails loadUserByUsername(String name);
+    void updateById(String password, Boolean is_activated, Long id);
 }

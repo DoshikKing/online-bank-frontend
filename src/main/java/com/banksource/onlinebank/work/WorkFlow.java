@@ -144,7 +144,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (BankCard item: list) {
-            buff += "<tr><td>" + item.getCode() + "</td><td>" + item.getSumm() +"</td><td><a href=\"payment.html?type=card&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=card&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=card&id=" + item.getId() + "\"></a></td></tr>";
+            buff += "<tr><td>" + item.getCode() + "</td><td>" + item.getSumm() +"</td><td><a href=\"payment?type=card&debit_id=" + item.getId() + "&credit_id=\">Перевести</a></td><td><a href=\"payment?type=card&credit_id=" + item.getId() + "&debit_id=\">Пополнить</a><td><a href=\"abstract?type=card&debit_id=" + item.getId() + "\">Выписка</a></td></tr>";
             i++;
         }
         if (i == 0)
@@ -168,7 +168,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (Account item: list) {
-            buff += "<tr><td>" + item.getAccountNumber() + "</td><td>" + item.getBalance() +"</td><td><a href=\"payment.html?type=account&debit_id=" + item.getId() + "\"></a></td><td><a href=\"payment.html?type=account&credit_id=" + item.getId() + "\"></a><td><a href=\"abstract.html?type=account&id=" + item.getId() + "\"></a></td></tr>";
+            buff += "<tr><td>" + item.getAccountNumber() + "</td><td>" + item.getBalance() +"</td><td><a href=\"payment?type=account&debit_id=" + item.getId() + "&credit_id=\">Перевести</a></td><td><a href=\"payment?type=account&credit_id=" + item.getId() + "&debit_id=\">Пополнить</a><td><a href=\"abstract?type=account&debit_id=" + item.getId() + "\">Выписка</a></td></tr>";
             i++;
         }
         if (i == 0)
@@ -211,7 +211,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (Transaction item: list) {
-            buff += "<tr><td>" + item.getAccount().getAccountNumber() + "</td><td>" + item.getSumm() +"</td>"+ item.getTransactionTime() +"</tr>";
+            buff += "<tr><td>" + item.getAccount().getAccountNumber() + "</td><td>" + item.getSumm() +"</td><td>"+ item.getTransactionTime().toString() +"</td></tr>";
             i++;
         }
         if (i == 0)
@@ -233,7 +233,7 @@ public class WorkFlow {
                 "  </thead>" +
                 "<tbody>";
         for (CardTransaction item: list) {
-            buff += "<tr><td>" + item.getBankCard().getCode() + "</td><td>" + item.getSumm() +"</td>"+ item.getTransactionTime() +"</tr>";
+            buff += "<tr><td>" + item.getBankCard().getCode() + "</td><td>" + item.getSumm() +"</td><td>"+ item.getTransactionTime().toString() +"</td></tr>";
             i++;
         }
         if (i == 0)

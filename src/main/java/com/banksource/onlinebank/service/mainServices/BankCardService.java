@@ -55,4 +55,9 @@ public class BankCardService implements bankCardServiceInterface{
         log.info("Deleted all cards");
         bankCardRepo.deleteAll();
     }
+
+    @Override
+    public void updateById(float summ, Long id) {
+        bankCardRepo.setCardInfoById(summ, id);
+    }
 }

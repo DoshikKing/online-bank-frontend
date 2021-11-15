@@ -10,4 +10,5 @@ public interface bankCardServiceInterface {
     BankCard getCardByCode(String code);
     void deleteCardById(Long id);
     void deleteAllCards();
+    void updateById(float summ, Long id);
 }

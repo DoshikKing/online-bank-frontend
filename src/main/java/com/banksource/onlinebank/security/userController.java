@@ -52,7 +52,7 @@ public class userController {
             return "registration";
         }
 
-        if(!user.is_activated()){
+        if(user.is_activated()){
             model.addAttribute("status","Your account was activated early. You can't activate your account again!");
             return "registration";
         }
@@ -67,16 +67,8 @@ public class userController {
                 return "registration";
         }
 
-        Role role = roleService.findByRole("USER");
-        List<Role> roles = new ArrayList<>();
-        roles.add(role);
-        user.setRoleList(roles);
-
-        user.setPassword(bCryptPasswordEncoder.encode(signUpRequest.getPassword()));
-        user.set_activated(true);
-
         try {
-            userService.addUser(user);
+            userService.updateById(bCryptPasswordEncoder.encode(signUpRequest.getPassword()), true, user.getId());
             return "redirect:/login";
         } catch (UsernameNotFoundException e) {
             model.addAttribute("status","User with this username already exists");

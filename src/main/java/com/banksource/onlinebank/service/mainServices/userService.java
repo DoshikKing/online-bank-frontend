@@ -53,4 +53,9 @@ public class userService implements userServiceInterface, UserDetailsService {
         }
         return new UserDTO(user);
     }
+
+    @Override
+    public void updateById(String password, Boolean is_activated, Long id) {
+        userRepo.setUserInfoById(password, is_activated, id);
+    }
 }

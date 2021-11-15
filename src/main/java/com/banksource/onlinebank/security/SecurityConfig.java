@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/home/getShopByAddress", "/home/getRecordById",
                         "/home/getRecordByTime", "/home/getRecordByDate", "/admin").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
-                .and().formLogin().defaultSuccessUrl("/forward").permitAll()
+                .and().formLogin().defaultSuccessUrl("/success").permitAll()
                 .and().logout().
                     invalidateHttpSession(true)
                     .clearAuthentication(true)

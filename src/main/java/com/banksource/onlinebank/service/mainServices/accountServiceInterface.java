@@ -10,4 +10,5 @@ public interface accountServiceInterface {
     Account findById(Long id);
     void deleteAccountById(Long id);
     void deleteAllAccounts();
+    void updateById(float summ, Long id);
 }

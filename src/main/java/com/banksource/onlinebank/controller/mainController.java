@@ -39,25 +39,6 @@ public class mainController {
         this.cardTransactionService = cardTransactionService;
     }
 
-//    @GetMapping("/forward")
-//    public String forward(Authentication authentication, Model model){
-//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("USER"))) {
-//            model.addAttribute("content", "2, /home");
-//        }
-//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("ADMIN"))) {
-//            model.addAttribute("content", "5, /admin");
-//        }
-//        if(userService.findUser(authentication.getName()).getRoleList().contains(roleService.findByRole("STAFF"))) {
-//            model.addAttribute("content", "5, /staff");
-//        }
-//        return "forward";
-//    }
-//
-//    @GetMapping("/admin")
-//    public String admin(){
-//        return "admin";
-//    }
-
     @GetMapping("/home")
     public String home(Authentication authentication, Model model){
         String username = authentication.getName();
@@ -121,12 +102,14 @@ public class mainController {
             {
                 bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
                 real_debit_id = bankCard.getId();
-                debit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), real_debit_id);
+                debit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), real_debit_id);
+                credit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), (long) -1);
             }
             else {
                 bankCard = bankCardService.getCardById(Long.parseLong(credit_id));
                 real_credit_id = bankCard.getId();
-                credit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), real_credit_id);
+                debit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), (long) -1);
+                credit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), real_credit_id);
             }
        }
 
@@ -136,12 +119,14 @@ public class mainController {
             {
                 account = accountService.findById(Long.parseLong(debit_id));
                 real_debit_id = account.getId();
-                debit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), real_debit_id);
+                debit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), real_debit_id);
+                credit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), (long) -1);
             }
             else {
                 account = accountService.findById(Long.parseLong(credit_id));
                 real_credit_id = account.getId();
-                credit_list = workFlow.dropDownListCard(userService.findUser(username).getClient().getBankCard(), real_credit_id);
+                debit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), (long) -1);
+                credit_list = workFlow.dropDownListAccount(userService.findUser(username).getClient().getAccount(), real_credit_id);
             }
         }
 
@@ -173,17 +158,23 @@ public class mainController {
         Long sum = Long.parseLong(amount);
 
         if (type.equals("card")){
-
+            BankCard bankCard_debit = bankCardService.getCardById(Long.parseLong(debit_id));
+            if(bankCard_debit.getSumm() - sum < 0){
+                return "redirect:/error";
+            }
+            //float percentage = bankCard_debit.getTariff().getTariffPercentage();
+            //(long)((percentage * (-sum))/100)
             CardTransaction debitCardTransaction = new CardTransaction();
-            debitCardTransaction.setBankCard(bankCardService.getCardById(Long.parseLong(debit_id)));
+            debitCardTransaction.setBankCard(bankCard_debit);
             debitCardTransaction.setSumm(-sum);
             debitCardTransaction.setTransactionTime(date);
             debitCardTransaction.setIsDebit(true);
             debitCardTransaction.setTransactionGroup(uuid);
             debitCardTransaction.setComment(comment);
 
+            BankCard bankCard_credit = bankCardService.getCardById(Long.parseLong(credit_id));
             CardTransaction creditCardTransaction = new CardTransaction();
-            creditCardTransaction.setBankCard(bankCardService.getCardById(Long.parseLong(credit_id)));
+            creditCardTransaction.setBankCard(bankCard_credit);
             creditCardTransaction.setSumm(sum);
             creditCardTransaction.setTransactionTime(date);
             creditCardTransaction.setIsDebit(false);
@@ -191,19 +182,27 @@ public class mainController {
             creditCardTransaction.setComment(comment);
 
             cardTransactionService.addCardTransaction(debitCardTransaction, creditCardTransaction);
+
+            bankCardService.updateById(bankCard_debit.getSumm() - sum, bankCard_debit.getId());
+            bankCardService.updateById(bankCard_credit.getSumm() + sum, bankCard_credit.getId());
         }
 
         if (type.equals("account")) {
+            Account account_debit = accountService.findById(Long.parseLong(debit_id));
+            if(account_debit.getBalance() - sum < 0){
+                return "redirect:/error";
+            }
             Transaction debitTransaction = new Transaction();
-            debitTransaction.setAccount(accountService.findById(Long.parseLong(debit_id)));
+            debitTransaction.setAccount(account_debit);
             debitTransaction.setSumm(-sum);
             debitTransaction.setTransactionTime(date);
             debitTransaction.setIsDebit(true);
             debitTransaction.setTransactionGroup(uuid);
             debitTransaction.setComment(comment);
 
+            Account account_credit = accountService.findById(Long.parseLong(credit_id));
             Transaction creditTransaction = new Transaction();
-            creditTransaction.setAccount(accountService.findById(Long.parseLong(credit_id)));
+            creditTransaction.setAccount(account_credit);
             creditTransaction.setSumm(sum);
             creditTransaction.setTransactionTime(date);
             creditTransaction.setIsDebit(false);
@@ -211,6 +210,9 @@ public class mainController {
             creditTransaction.setComment(comment);
 
             transactionService.addTransaction(debitTransaction, creditTransaction);
+
+            accountService.updateById(account_debit.getBalance() - sum, account_debit.getId());
+            accountService.updateById(account_credit.getBalance() + sum, account_credit.getId());
         }
         return "redirect:/success";
     }
@@ -259,6 +261,19 @@ public class mainController {
         model.addAttribute("debit_transactions_list", debit_transactions_list);
 
         return "abstract";
+    }
+    @GetMapping("/success")
+    public String success(Model model) {
+        model.addAttribute("content", "2, /home");
+        return "success";
+    }
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
     }
 }
 
