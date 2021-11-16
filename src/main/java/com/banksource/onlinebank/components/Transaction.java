@@ -18,7 +18,7 @@ public class Transaction {
     @Column(name = "comment", nullable = false)
     private String comment;
     @Column(name = "amount", nullable = false)
-    private Long summ;
+    private float summ;
     @Column(name = "is_debit")
     private Boolean isDebit;
     @Column(name = "transaction_time", nullable = false)

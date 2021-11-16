@@ -155,18 +155,17 @@ public class mainController {
         java.util.Date time = new java.util.Date();
         Date date = new Date(time.getTime());
         String uuid = UUID.randomUUID().toString();
-        Long sum = Long.parseLong(amount);
+        float sum = Float.parseFloat(amount);
 
         if (type.equals("card")){
             BankCard bankCard_debit = bankCardService.getCardById(Long.parseLong(debit_id));
             if(bankCard_debit.getSumm() - sum < 0){
                 return "redirect:/error";
             }
-            //float percentage = bankCard_debit.getTariff().getTariffPercentage();
-            //(long)((percentage * (-sum))/100)
+            float percentage = bankCard_debit.getTariff().getTariffPercentage()/100;
             CardTransaction debitCardTransaction = new CardTransaction();
             debitCardTransaction.setBankCard(bankCard_debit);
-            debitCardTransaction.setSumm(-sum);
+            debitCardTransaction.setSumm(-(sum + (sum*percentage)));
             debitCardTransaction.setTransactionTime(date);
             debitCardTransaction.setIsDebit(true);
             debitCardTransaction.setTransactionGroup(uuid);
@@ -183,7 +182,7 @@ public class mainController {
 
             cardTransactionService.addCardTransaction(debitCardTransaction, creditCardTransaction);
 
-            bankCardService.updateById(bankCard_debit.getSumm() - sum, bankCard_debit.getId());
+            bankCardService.updateById(bankCard_debit.getSumm() - (sum + (sum*percentage)), bankCard_debit.getId());
             bankCardService.updateById(bankCard_credit.getSumm() + sum, bankCard_credit.getId());
         }
 
@@ -192,9 +191,10 @@ public class mainController {
             if(account_debit.getBalance() - sum < 0){
                 return "redirect:/error";
             }
+            float percentage = account_debit.getTariff().getTariffPercentage()/100;
             Transaction debitTransaction = new Transaction();
             debitTransaction.setAccount(account_debit);
-            debitTransaction.setSumm(-sum);
+            debitTransaction.setSumm(-(sum + (sum*percentage)));
             debitTransaction.setTransactionTime(date);
             debitTransaction.setIsDebit(true);
             debitTransaction.setTransactionGroup(uuid);
@@ -211,7 +211,7 @@ public class mainController {
 
             transactionService.addTransaction(debitTransaction, creditTransaction);
 
-            accountService.updateById(account_debit.getBalance() - sum, account_debit.getId());
+            accountService.updateById(account_debit.getBalance() - (sum + (sum*percentage)), account_debit.getId());
             accountService.updateById(account_credit.getBalance() + sum, account_credit.getId());
         }
         return "redirect:/success";
