@@ -36,7 +36,7 @@
                                     <h5 class="card-title">Праметры перевода</h5>
                                     <p class="card-text"><p th:utext="${buff}"></p></p>
                                     <form method="post" action="/payment/execute">
-                                        <div class="row row-cols-1" style="width: 120%; display: flex">
+                                        <div class="row row-cols-1" style="display: flex; margin: 5px;">
                                             <div class="col-sm">
                                                 <label>
                                                     <p>Откуда</p>
@@ -46,7 +46,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row row-cols-1" style="width: 120%; display: flex">
+                                        <div class="row row-cols-1" style="display: flex; margin: 5px;">
                                             <div class="col-sm">
                                                 <label>
                                                     <p>Куда</p>
@@ -56,18 +56,18 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row row-cols-1" style="width: 120%; display: flex">
+                                        <div class="row row-cols-1" style="display: flex; margin: 5px;">
                                             <div class="col-sm">
                                                 <input placeholder="Сумма" name="amount" type="text">
                                                 <p th:utext="${type}" hidden="true">
                                             </div>
                                         </div>
-                                        <div class="row row-cols-1" style="width: 120%; display: flex">
+                                        <div class="row row-cols-1" style="display: flex; margin: 5px;">
                                             <div class="col-sm">
                                                 <input placeholder="Комментарий платежа..." name="comment" type="text">
                                             </div>
                                         </div>
-                                        <div class="row row-cols-1" style="width: 120%; display: flex">
+                                        <div class="row row-cols-1" style="display: flex">
                                             <!-- Button trigger modal -->
                                             <button type="submit" class="btn btn-dark">
                                                 Выполнить
