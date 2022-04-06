@@ -271,6 +271,7 @@ public class mainController {
     public String error() {
         return "error";
     }
+
     @GetMapping("/welcome")
     public String welcome() {
         return "welcome";
