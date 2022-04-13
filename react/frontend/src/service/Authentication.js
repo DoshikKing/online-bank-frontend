@@ -3,6 +3,10 @@ const axios = require('axios');
 import config from '../configuration/api/config.js';
 import { HandleResponse } from '../helpers/HandleResponse.js';
 
+// TODO: Данный код проводит авторизацию с запоминанием токена авторизации. В моём случае авторизация происходит через Basic Authorization,
+//  поэтому нужно либо переписать так чтобы он запоминал толлько пароль и логин пользователя временно или переделать api на использование JWT токена.
+// Сервис позволяющий провести авторизацию в API
+
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 
 export const authenticationService = {
@@ -16,7 +20,7 @@ function login(username, password) {
     // TODO: Переписанный код на axios. Нужно тестить.
     axios
     ({
-        method: "post",
+        method: "POST",
         url:`${config.apiURL}/authenticate`,
         headers: { 'Content-Type': 'application/json' },
         data:
@@ -27,12 +31,12 @@ function login(username, password) {
     }) // TODO: response.data содержит весь body нужно конкретно указать токен. Типа response.data.token
     .then(function (response)
         {
-            const data = HandleResponse(response.data)
+            const data = HandleResponse(response)
             // Сохраняем пользователя локально для последующих взаимодействий с API
-            localStorage.setItem('currentUser', JSON.stringify(data));
-            currentUserSubject.next(data);
+            localStorage.setItem('currentUser', JSON.stringify(data.data));
+            currentUserSubject.next(data.data);
 
-            return data;
+            return data.data;
         }
     )
     // Старый код. Используется fetch()
