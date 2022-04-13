@@ -17,6 +17,9 @@ import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
+// TODO: Переработать контроллер. Сделать так чтобы выдавал JSON.
+// TODO: Также пересмотреть контроллер на предмет разделения на несколько отдельных контроллеров
+
 @Controller
 public class mainController {
     private boolean flag = false;
@@ -275,6 +278,12 @@ public class mainController {
     @GetMapping("/welcome")
     public String welcome() {
         return "welcome";
+    }
+
+    // TODO: В конце избавиться от тестовых методов и классов в проекте
+    @GetMapping("/test")
+    public String test() {
+        return "Вход прошел успешно";
     }
 }
 

@@ -12,9 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+// TODO: Подумать об использовании JWT токена вместо Basic
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private userService userService;
     private AuthenticationEntryPoint authEntryPoint;
 
+    // TODO: Разобраться с старым конфигом
 //    @Override
 //    protected void configure(HttpSecurity http) throws
 //            Exception {
@@ -50,19 +53,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .logoutSuccessUrl("/welcome")
 //                .permitAll();
 //    }
-
+    // TODO: Нужно добавить фильтрацию по ролям пользователей
     @Override
-    protected void configure(HttpSecurity http) throws
-            Exception {
+    protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf()
                 .disable()
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                //.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/test/data").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
-                .and().httpBasic().authenticationEntryPoint(authEntryPoint)
+                .and().httpBasic()//.authenticationEntryPoint(authEntryPoint)
                 //.and().formLogin().defaultSuccessUrl("/success").permitAll()
                 .and().logout().
                 invalidateHttpSession(true)
@@ -70,8 +73,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/welcome")
                 .permitAll();
+    // TODO: Фильтр доделать
+
+    //        http.addFilterAfter(new CustomFilter(),
+    //                BasicAuthenticationFilter.class);
     }
 
+    // TODO: Разобраться с ниже перечисленными функциями. Нужны или нет.
     @Override
     protected void configure(AuthenticationManagerBuilder managerBuilder) throws Exception{
         managerBuilder.authenticationProvider(authenticationProvider());
@@ -91,6 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationProvider;
     }
 
+    // TODO: Это нужно
     @Bean
     public BCryptPasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
