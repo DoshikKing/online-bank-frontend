@@ -31,7 +31,7 @@ function login(username, password) {
     }) // TODO: response.data содержит весь body нужно конкретно указать токен. Типа response.data.token
     .then(function (response)
         {
-            const data = HandleResponse(response)
+            const data = HandleResponse(response);
             // Сохраняем пользователя локально для последующих взаимодействий с API
             localStorage.setItem('currentUser', JSON.stringify(data.data));
             currentUserSubject.next(data.data);

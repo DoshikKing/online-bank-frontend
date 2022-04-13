@@ -21,7 +21,7 @@ function getListOfCards() {
         headers: { 'Authorization': authHeader }
     })
     .then(function (response){
-        return HandleResponse(response)
+        return HandleResponse(response);
     })
 }
 
@@ -33,7 +33,7 @@ function getListOfAccounts() {
         headers: { 'Authorization': authHeader }
     })
     .then(function (response){
-        return HandleResponse(response)
+        return HandleResponse(response);
     })
 }
 
@@ -49,7 +49,7 @@ function getAbstract(id) {
         }
     })
     .then(function (response){
-        return HandleResponse(response)
+        return HandleResponse(response);
     })
 }
 
