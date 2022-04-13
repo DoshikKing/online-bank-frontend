@@ -1,6 +1,6 @@
 import {config} from '../configuration/api/config.js';
 import { HandleResponse } from '../helpers/HandleResponse';
-import { authHeader as Authorization } from "../helpers/Authorization";
+import { authHeader } from "../helpers/authHeader";
 const axios = require('axios');
 
 export const userService = {
@@ -18,7 +18,7 @@ function getListOfCards() {
     ({
         method: "GET",
         url:`${config.apiURL}/getListOfCards`,
-        headers: { 'Authorization': Authorization }
+        headers: { 'Authorization': authHeader }
     })
     .then(function (response){
         return HandleResponse(response)
@@ -30,7 +30,7 @@ function getListOfAccounts() {
     ({
         method: "GET",
         url:`${config.apiURL}/getListOfAccounts`,
-        headers: { 'Authorization': Authorization }
+        headers: { 'Authorization': authHeader }
     })
     .then(function (response){
         return HandleResponse(response)
@@ -42,7 +42,7 @@ function getAbstract(id) {
     ({
         method: "POST",
         url:`${config.apiURL}/getAbstract`,
-        headers: { 'Authorization': Authorization },
+        headers: { 'Authorization': authHeader },
         data:
         {
             id: id
@@ -54,11 +54,11 @@ function getAbstract(id) {
 }
 
 function executeCardTransaction(debit_id, credit_id) {
-    // TODO: Написать работу с выполнением транзакций
+    // TODO: Написать логику отправки данных о совершаемой транзакции
 }
 
 function executeAccountTransaction(debit_id, credit_id) {
-    // TODO: Написать работу с выполнением транзакций
+    // TODO: Написать логику отправки данных о совершаемой транзакции
 }
 
 // function getAll() {
