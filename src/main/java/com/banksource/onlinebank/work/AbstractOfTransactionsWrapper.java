@@ -11,14 +11,10 @@ import java.util.List;
 @Component
 public class AbstractOfTransactionsWrapper {
 
-    private List<CardTransaction> cardTransactions;
-    private List<Transaction> accountTransactions;
-
     public List<TransactionData> cardTransactionWrapper(List<CardTransaction> cardTransactions){
-        this.cardTransactions = cardTransactions;
         List<TransactionData> transactionDataList = new ArrayList<>();
 
-        for (CardTransaction cardTransaction :this.cardTransactions) {
+        for (CardTransaction cardTransaction :cardTransactions) {
             TransactionData transactionData = new TransactionData();
 
             transactionData.setComment(cardTransaction.getComment());
@@ -32,10 +28,9 @@ public class AbstractOfTransactionsWrapper {
     }
 
     public List<TransactionData> accountTransactionWrapper(List<Transaction> accountTransactions){
-        this.accountTransactions = accountTransactions;
         List<TransactionData> transactionDataList = new ArrayList<>();
 
-        for (Transaction accountTransaction :this.accountTransactions) {
+        for (Transaction accountTransaction :accountTransactions) {
             TransactionData transactionData = new TransactionData();
             transactionData.setComment(accountTransaction.getComment());
             transactionData.setIsDebit(accountTransaction.getIsDebit());

@@ -31,29 +31,39 @@ public class abstractController {
 
     @GetMapping("/card/{debit_id}")
     public ResponseEntity<List<TransactionData>> getCardAbstract(@PathVariable("debit_id") String debit_id, Authentication authentication){
-        BankCard bankCard;
-        if(!debit_id.isEmpty())
-        {
-            bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
-            if (bankCard.getClient().getUser().getLogin().equals(authentication.getName()))
+        try {
+            BankCard bankCard;
+            if(!debit_id.isEmpty())
             {
-                return new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK) ;
+                bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
+                if (bankCard.getClient().getUser().getLogin().equals(authentication.getName()))
+                {
+                    return new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK) ;
+                }
             }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/account/{debit_id}")
     public ResponseEntity<List<TransactionData>> getAccountAbstract(@PathVariable("debit_id") String debit_id, Authentication authentication){
-        Account account;
-        if(!debit_id.isEmpty())
-        {
-            account = accountService.findById(Long.parseLong(debit_id));
-            if (account.getClient().getUser().getLogin().equals(authentication.getName()))
+        try{
+            Account account;
+            if(!debit_id.isEmpty())
             {
-                return new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK) ;
+                account = accountService.findById(Long.parseLong(debit_id));
+                if (account.getClient().getUser().getLogin().equals(authentication.getName()))
+                {
+                    return new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK) ;
+                }
             }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
