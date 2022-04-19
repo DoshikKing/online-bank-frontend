@@ -49,8 +49,8 @@ public class CardAndAccountTransactionExecuteController {
                           Authentication authentication){
 
         try{
-            Long debit_id = bankCardService.getCardByCode(executableTransactionData.getDebit_id_hash_code()).getId();
-            Long credit_id = bankCardService.getCardByCode(executableTransactionData.getCredit_id_hash_code()).getId();
+            Long debit_id = executableTransactionData.getDebit_id();
+            Long credit_id = executableTransactionData.getCredit_id();
             float sum = executableTransactionData.getAmount();
             String comment = executableTransactionData.getComment();
 
@@ -101,8 +101,8 @@ public class CardAndAccountTransactionExecuteController {
                                   Authentication authentication){
 
         try {
-            Long debit_id = accountService.findByAccountNumber(executableTransactionData.getDebit_id_hash_code()).getId();
-            Long credit_id = accountService.findByAccountNumber(executableTransactionData.getCredit_id_hash_code()).getId();
+            Long debit_id = executableTransactionData.getDebit_id();
+            Long credit_id = executableTransactionData.getCredit_id();
             float sum = executableTransactionData.getAmount();
             String comment = executableTransactionData.getComment();
 

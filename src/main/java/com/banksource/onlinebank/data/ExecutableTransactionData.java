@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class ExecutableTransactionData {
 
-    private String debit_id_hash_code;
-    private String credit_id_hash_code;
+    private Long debit_id;
+    private Long credit_id;
     private float amount;
     private String comment;
 }

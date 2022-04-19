@@ -15,6 +15,7 @@ public class AccountListWrapper {
         for (Account account: accountList) {
             AccountData accountData = new AccountData();
 
+            accountData.setId(account.getId());
             accountData.setAccountNumber(account.getAccountNumber());
             accountData.setBalance(account.getBalance());
             accountData.setStatusTime(account.getStatusTime());

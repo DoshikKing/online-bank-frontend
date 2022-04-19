@@ -592,3 +592,47 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 242306 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
 242309 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
 242314 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+5444 [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+5566 [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 4132 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+5567 [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+6000 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+6001 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+11332 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11767 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 396 ms. Found 10 JPA repository interfaces.
+14341 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+14361 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+14362 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+14362 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+14540 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+14540 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 8539 ms
+14883 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+15568 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+16053 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+16232 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+16404 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16584 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+18890 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+18898 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+19749 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20117 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@542a1b93, org.springframework.security.web.context.SecurityContextPersistenceFilter@13a2479, org.springframework.security.web.header.HeaderWriterFilter@55485bce, org.springframework.security.web.authentication.logout.LogoutFilter@24d551ac, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1f0b57b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1398220c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e17aa27, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c1e4629, org.springframework.security.web.session.SessionManagementFilter@1d02d5fa, org.springframework.security.web.access.ExceptionTranslationFilter@28754087, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@546f3ec6]
+20758 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+20764 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+20792 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+20823 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+20842 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+20865 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 18.425 seconds (JVM running for 23.193)
+21436 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+21437 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+21439 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
+44195 [http-nio-8080-exec-1] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
+155014 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
+155018 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
+155064 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
+155068 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new debit transaction for card com.banksource.onlinebank.components.CardTransaction@1c5f8d40
+155068 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new credit transaction for card com.banksource.onlinebank.components.CardTransaction@7903304
+160216 [http-nio-8080-exec-7] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
+171297 [http-nio-8080-exec-8] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
+189682 [http-nio-8080-exec-9] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
+2166087 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+2166282 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+2166287 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.

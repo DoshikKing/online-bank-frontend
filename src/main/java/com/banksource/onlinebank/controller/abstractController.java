@@ -35,18 +35,14 @@ public class abstractController {
         this.checkAuthentication = checkAuthentication;
     }
 
-    @GetMapping("/card/{debit_hash_code}")
-    public ResponseEntity<List<TransactionData>> getCardAbstract(@PathVariable("debit_hash_code") String debit_hash_code, Authentication authentication){
+    @GetMapping("/card/{debit_id}")
+    public ResponseEntity<List<TransactionData>> getCardAbstract(@PathVariable("debit_id") String debit_id, Authentication authentication){
         try {
             BankCard bankCard;
 
-            Base64.Decoder decoder = Base64.getDecoder();
-
-            String decoded_debit = new String(decoder.decode(debit_hash_code));
-
-            if(!decoded_debit.isEmpty())
+            if(!debit_id.isEmpty())
             {
-                bankCard = bankCardService.getCardByCode(decoded_debit);
+                bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
 
                 return
                 checkAuthentication.check(bankCard.getClient().getUser().getLogin(), authentication.getName())
@@ -60,18 +56,14 @@ public class abstractController {
         }
     }
 
-    @GetMapping("/account/{account_name}")
-    public ResponseEntity<List<TransactionData>> getAccountAbstract(@PathVariable("account_name") String account_name, Authentication authentication){
+    @GetMapping("/account/{account_id}")
+    public ResponseEntity<List<TransactionData>> getAccountAbstract(@PathVariable("account_id") String account_id, Authentication authentication){
         try{
             Account account;
 
-            Base64.Decoder decoder = Base64.getDecoder();
-
-            String decoded_name = new String(decoder.decode(account_name));
-
-            if(!decoded_name.isEmpty())
+            if(!account_id.isEmpty())
             {
-                account = accountService.findByAccountName(decoded_name);
+                account = accountService.findById(Long.parseLong(account_id));
 
                 return
                 checkAuthentication.check(account.getClient().getUser().getLogin(),authentication.getName())

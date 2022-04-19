@@ -16,6 +16,7 @@ public class CardListWrapper {
         for (BankCard card: bankCardList) {
             CardData cardData = new CardData();
 
+            cardData.setId(card.getId());
             cardData.setSumm(card.getSumm());
             cardData.setCode(card.getCode());
             cardData.setPaySystem(card.getPaySystem().getType());

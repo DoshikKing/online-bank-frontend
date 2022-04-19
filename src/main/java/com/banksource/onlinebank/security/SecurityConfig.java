@@ -59,14 +59,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/test/data").hasAuthority("ADMIN")
+                //.antMatchers(HttpMethod.OPTIONS, "/test/data").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().logout().
                 invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/welcome")
+                //.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                //.logoutSuccessUrl("/welcome")
                 .permitAll();
     }
 
