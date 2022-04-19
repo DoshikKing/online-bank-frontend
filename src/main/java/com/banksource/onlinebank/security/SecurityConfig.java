@@ -22,12 +22,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    private userService userService;
-    private AuthenticationEntryPoint authEntryPoint;
-
-    // TODO: Разобраться с старым конфигом
+// Старый код
 //    @Override
 //    protected void configure(HttpSecurity http) throws
 //            Exception {
@@ -75,7 +70,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    // TODO: Разобраться с ниже перечисленными функциями. Нужны или нет.
     @Override
     protected void configure(AuthenticationManagerBuilder managerBuilder) throws Exception{
         managerBuilder.authenticationProvider(authenticationProvider());
@@ -83,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return  new userService();
+        return new userService();
     }
 
     @Bean
@@ -95,7 +89,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationProvider;
     }
 
-    // TODO: Это нужно
     @Bean
     public BCryptPasswordEncoder encoder() {
         return new BCryptPasswordEncoder();

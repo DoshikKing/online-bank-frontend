@@ -46,7 +46,7 @@ public class userCardAndAccountListController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception){
             System.out.println(exception.getMessage());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -62,7 +62,7 @@ public class userCardAndAccountListController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception){
             System.out.println(exception.getMessage());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

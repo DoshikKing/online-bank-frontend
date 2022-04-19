@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -33,53 +35,53 @@ public class abstractController {
         this.checkAuthentication = checkAuthentication;
     }
 
-    @GetMapping("/card/{debit_id}")
-    public ResponseEntity<List<TransactionData>> getCardAbstract(@PathVariable("debit_id") String debit_id, Authentication authentication){
+    @GetMapping("/card/{debit_hash_code}")
+    public ResponseEntity<List<TransactionData>> getCardAbstract(@PathVariable("debit_hash_code") String debit_hash_code, Authentication authentication){
         try {
             BankCard bankCard;
-            if(!debit_id.isEmpty())
+
+            Base64.Decoder decoder = Base64.getDecoder();
+
+            String decoded_debit = new String(decoder.decode(debit_hash_code));
+
+            if(!decoded_debit.isEmpty())
             {
-                bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
+                bankCard = bankCardService.getCardByCode(decoded_debit);
 
                 return
                 checkAuthentication.check(bankCard.getClient().getUser().getLogin(), authentication.getName())
                 ? new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-
-//                if (bankCard.getClient().getUser().getLogin().equals(authentication.getName()))
-//                {
-//                    return new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK) ;
-//                }
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/account/{debit_id}")
-    public ResponseEntity<List<TransactionData>> getAccountAbstract(@PathVariable("debit_id") String debit_id, Authentication authentication){
+    @GetMapping("/account/{account_name}")
+    public ResponseEntity<List<TransactionData>> getAccountAbstract(@PathVariable("account_name") String account_name, Authentication authentication){
         try{
             Account account;
-            if(!debit_id.isEmpty())
+
+            Base64.Decoder decoder = Base64.getDecoder();
+
+            String decoded_name = new String(decoder.decode(account_name));
+
+            if(!decoded_name.isEmpty())
             {
-                account = accountService.findById(Long.parseLong(debit_id));
+                account = accountService.findByAccountName(decoded_name);
 
                 return
                 checkAuthentication.check(account.getClient().getUser().getLogin(),authentication.getName())
                 ? new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-
-//                if (account.getClient().getUser().getLogin().equals(authentication.getName()))
-//                {
-//                    return new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK);
-//                }
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

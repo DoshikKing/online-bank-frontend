@@ -1,11 +1,10 @@
 package com.banksource.onlinebank.security;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
-@AllArgsConstructor
+@Data
 public class SignUpRequest {
+
     private String login;
     private String password;
     private String repass;
