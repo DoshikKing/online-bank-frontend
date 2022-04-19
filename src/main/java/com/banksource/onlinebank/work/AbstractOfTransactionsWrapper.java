@@ -21,7 +21,7 @@ public class AbstractOfTransactionsWrapper {
             transactionData.setIsDebit(cardTransaction.getIsDebit());
             transactionData.setSumm(cardTransaction.getSumm());
             transactionData.setTransactionTime(cardTransaction.getTransactionTime());
-            transactionData.setCard_code(cardTransaction.getBankCard().getCode());
+            transactionData.setCode(cardTransaction.getBankCard().getCode());
             transactionDataList.add(transactionData);
         }
         return transactionDataList;
@@ -36,7 +36,7 @@ public class AbstractOfTransactionsWrapper {
             transactionData.setIsDebit(accountTransaction.getIsDebit());
             transactionData.setSumm(accountTransaction.getSumm());
             transactionData.setTransactionTime(accountTransaction.getTransactionTime());
-            transactionData.setCard_code(accountTransaction.getAccount().getAccountNumber());
+            transactionData.setCode(accountTransaction.getAccount().getAccountNumber());
             transactionDataList.add(transactionData);
         }
         return transactionDataList;

@@ -1,3 +1,4 @@
+/*
 //package com.banksource.onlinebank.controller;
 //
 //import com.banksource.onlinebank.components.*;
@@ -144,7 +145,7 @@
 //        return "payment";
 //    }
 //
-//    @PostMapping("/payment/execute")
+    @PostMapping("/payment/execute")
 //    public String payment(@RequestParam String type, @RequestParam String debit_id, @RequestParam String credit_id, @RequestParam String amount, @RequestParam String comment,
 //                          Authentication authentication, Model model){
 //        String username = authentication.getName();
@@ -291,3 +292,4 @@
 //    }
 //}
 //
+*/

@@ -6,6 +6,7 @@ import com.banksource.onlinebank.data.TransactionData;
 import com.banksource.onlinebank.service.mainServices.AccountService;
 import com.banksource.onlinebank.service.mainServices.BankCardService;
 import com.banksource.onlinebank.work.AbstractOfTransactionsWrapper;
+import com.banksource.onlinebank.work.CheckAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +22,15 @@ public class abstractController {
     private BankCardService bankCardService;
     private AccountService accountService;
     private AbstractOfTransactionsWrapper transactionWrapper;
+    private CheckAuthentication checkAuthentication;
 
     @Autowired
-    public abstractController(BankCardService bankCardService, AccountService accountService, AbstractOfTransactionsWrapper transactionWrapper){
+    public abstractController(BankCardService bankCardService, AccountService accountService,
+                              AbstractOfTransactionsWrapper transactionWrapper, CheckAuthentication checkAuthentication){
         this.bankCardService = bankCardService;
         this.accountService = accountService;
         this.transactionWrapper = transactionWrapper;
+        this.checkAuthentication = checkAuthentication;
     }
 
     @GetMapping("/card/{debit_id}")
@@ -36,10 +40,16 @@ public class abstractController {
             if(!debit_id.isEmpty())
             {
                 bankCard = bankCardService.getCardById(Long.parseLong(debit_id));
-                if (bankCard.getClient().getUser().getLogin().equals(authentication.getName()))
-                {
-                    return new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK) ;
-                }
+
+                return
+                checkAuthentication.check(bankCard.getClient().getUser().getLogin(), authentication.getName())
+                ? new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+//                if (bankCard.getClient().getUser().getLogin().equals(authentication.getName()))
+//                {
+//                    return new ResponseEntity<>(transactionWrapper.cardTransactionWrapper(bankCard.getCardTransactionsList()), HttpStatus.OK) ;
+//                }
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception) {
@@ -55,10 +65,16 @@ public class abstractController {
             if(!debit_id.isEmpty())
             {
                 account = accountService.findById(Long.parseLong(debit_id));
-                if (account.getClient().getUser().getLogin().equals(authentication.getName()))
-                {
-                    return new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK) ;
-                }
+
+                return
+                checkAuthentication.check(account.getClient().getUser().getLogin(),authentication.getName())
+                ? new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+//                if (account.getClient().getUser().getLogin().equals(authentication.getName()))
+//                {
+//                    return new ResponseEntity<>(transactionWrapper.accountTransactionWrapper(account.getTransactions()), HttpStatus.OK);
+//                }
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception) {

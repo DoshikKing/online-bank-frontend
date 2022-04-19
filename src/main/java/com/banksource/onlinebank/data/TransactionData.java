@@ -11,5 +11,5 @@ public class TransactionData {
     private float summ;
     private Boolean isDebit;
     private Date transactionTime;
-    private String card_code;
+    private String code;
 }

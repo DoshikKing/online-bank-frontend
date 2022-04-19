@@ -64,11 +64,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                //.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/test/data").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
-                .and().httpBasic()//.authenticationEntryPoint(authEntryPoint)
-                //.and().formLogin().defaultSuccessUrl("/success").permitAll()
+                .and().httpBasic()
                 .and().logout().
                 invalidateHttpSession(true)
                 .clearAuthentication(true)

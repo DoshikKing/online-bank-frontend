@@ -5,6 +5,7 @@ import com.banksource.onlinebank.data.CardData;
 import com.banksource.onlinebank.service.mainServices.userService;
 import com.banksource.onlinebank.work.AccountListWrapper;
 import com.banksource.onlinebank.work.CardListWrapper;
+import com.banksource.onlinebank.work.CheckAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,19 +23,25 @@ public class userCardAndAccountListController {
     private userService userService;
     private CardListWrapper cardListWrapper;
     private AccountListWrapper accountListWrapper;
+    private CheckAuthentication checkAuthentication;
 
     @Autowired
-    public userCardAndAccountListController(userService userService, CardListWrapper cardListWrapper, AccountListWrapper accountListWrapper){
+    public userCardAndAccountListController(userService userService, CardListWrapper cardListWrapper,
+                                            AccountListWrapper accountListWrapper, CheckAuthentication checkAuthentication){
         this.userService = userService;
         this.cardListWrapper = cardListWrapper;
         this.accountListWrapper = accountListWrapper;
+        this.checkAuthentication = checkAuthentication;
     }
 
     @GetMapping("/cards")
     public ResponseEntity<List<CardData>> getCardsList(Authentication authentication){
         try {
             if (userService.findUser(authentication.getName()).getClient().getBankCard() !=  null){
-                return new ResponseEntity<>(cardListWrapper.ListWrapper(userService.findUser(authentication.getName()).getClient().getBankCard()), HttpStatus.OK);
+                return
+                checkAuthentication.check(userService.findUser(authentication.getName()).getLogin(), authentication.getName())
+                ? new ResponseEntity<>(cardListWrapper.ListWrapper(userService.findUser(authentication.getName()).getClient().getBankCard()), HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception){
@@ -47,7 +54,10 @@ public class userCardAndAccountListController {
     public ResponseEntity<List<AccountData>> getAccountsList(Authentication authentication){
         try {
             if (userService.findUser(authentication.getName()).getClient().getAccount() !=  null){
-                return new ResponseEntity<>(accountListWrapper.ListWrapper(userService.findUser(authentication.getName()).getClient().getAccount()), HttpStatus.OK);
+                return
+                checkAuthentication.check(userService.findUser(authentication.getName()).getLogin(), authentication.getName())
+                ? new ResponseEntity<>(accountListWrapper.ListWrapper(userService.findUser(authentication.getName()).getClient().getAccount()), HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception exception){
