@@ -1,18 +1,18 @@
-1804 [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 2272 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-1808 [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-1810 [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-2015 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2015 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-5807 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-5900 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 85 ms. Found 10 JPA repository interfaces.
-6893 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-7000 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-7000 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-7001 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-7142 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-7142 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 5125 ms
-7420 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-8494 [restartedMain] ERROR com.zaxxer.hikari.pool.HikariPool –HikariPool-1 - Exception during pool initialization.
+3320 [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 5484 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+3311 [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+3321 [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+3654 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+3655 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+6906 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+7086 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 172 ms. Found 10 JPA repository interfaces.
+8057 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+8148 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+8148 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+8148 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+8272 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+8272 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 4579 ms
+8564 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+9674 [restartedMain] ERROR com.zaxxer.hikari.pool.HikariPool –HikariPool-1 - Exception during pool initialization.
 org.postgresql.util.PSQLException: Подсоединение по адресу localhost:5432 отклонено. Проверьте что хост и порт указаны правильно и что postmaster принимает TCP/IP-подсоединения.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:303)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
@@ -156,13 +156,13 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
 	... 129 common frames omitted
-8512 [restartedMain] ERROR o.s.b.w.e.tomcat.TomcatStarter –Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'sessionRepositoryFilterRegistration' defined in class path resource [org/springframework/boot/autoconfigure/session/SessionRepositoryFilterConfiguration.class]: Unsatisfied dependency expressed through method 'sessionRepositoryFilterRegistration' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.session.JdbcSessionConfiguration$SpringBootJdbcHttpSessionConfiguration': Unsatisfied dependency expressed through method 'setTransactionManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jdbcSessionDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/session/JdbcSessionConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Unable to detect database type
-8541 [restartedMain] INFO  o.a.catalina.core.StandardService –Stopping service [Tomcat]
-8544 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext –Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
-8557 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener –
+9681 [restartedMain] ERROR o.s.b.w.e.tomcat.TomcatStarter –Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'sessionRepositoryFilterRegistration' defined in class path resource [org/springframework/boot/autoconfigure/session/SessionRepositoryFilterConfiguration.class]: Unsatisfied dependency expressed through method 'sessionRepositoryFilterRegistration' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.session.JdbcSessionConfiguration$SpringBootJdbcHttpSessionConfiguration': Unsatisfied dependency expressed through method 'setTransactionManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jdbcSessionDataSourceInitializer' defined in class path resource [org/springframework/boot/autoconfigure/session/JdbcSessionConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Unable to detect database type
+9713 [restartedMain] INFO  o.a.catalina.core.StandardService –Stopping service [Tomcat]
+9718 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext –Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+9731 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener –
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-8594 [restartedMain] ERROR o.s.boot.SpringApplication –Application run failed
+9769 [restartedMain] ERROR o.s.boot.SpringApplication –Application run failed
 org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:163)
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
@@ -333,306 +333,283 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
 	... 129 common frames omitted
+646  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 2096 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+649  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+650  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+692  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+692  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1887 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+1963 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 69 ms. Found 10 JPA repository interfaces.
+2543 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2550 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2550 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2550 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2646 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2646 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1954 ms
+2800 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+3490 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+4019 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+4216 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+4454 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+4605 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+6597 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+6618 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+7443 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+7728 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c362801, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fbba49c, org.springframework.security.web.header.HeaderWriterFilter@4aa46bf, org.springframework.security.web.authentication.logout.LogoutFilter@55cc177e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@16f84b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46d5d65a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d9c8cfe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57f45308, org.springframework.security.web.session.SessionManagementFilter@2ae93b8e, org.springframework.security.web.access.ExceptionTranslationFilter@4a991627, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@34031b19]
+8321 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+8326 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+8352 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+8408 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+8426 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+8441 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 8.129 seconds (JVM running for 9.314)
+9022 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+9022 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+9024 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
+2317550 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+2317561 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+2317567 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+965  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 16180 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+972  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+980  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+1032 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+1032 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2000 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2078 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 71 ms. Found 10 JPA repository interfaces.
+2644 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2650 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2651 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2651 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2785 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2785 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1752 ms
+2952 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+3202 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+3267 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+3321 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+3441 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3536 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+4401 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+4408 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+5865 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+6784 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5596c09e, org.springframework.security.web.context.SecurityContextPersistenceFilter@aab0eb9, org.springframework.security.web.header.HeaderWriterFilter@4c65175c, org.springframework.security.web.authentication.logout.LogoutFilter@505b05bc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6da7f88d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@172108e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ca47dcf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@685decda, org.springframework.security.web.session.SessionManagementFilter@10e61587, org.springframework.security.web.access.ExceptionTranslationFilter@63cedd46, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2edb7124]
+7307 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+7312 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+7339 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+7357 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+7384 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+7397 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 7.053 seconds (JVM running for 7.967)
+7730 [RMI TCP Connection(7)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+7731 [RMI TCP Connection(7)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+7733 [RMI TCP Connection(7)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
+807524 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+807527 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+807533 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+948  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 11992 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+946  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+951  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+996  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+996  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2103 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2178 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 69 ms. Found 10 JPA repository interfaces.
+2745 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2752 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2752 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2752 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2868 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2868 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1872 ms
+3014 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+3156 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+3218 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+3272 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+3375 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3469 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+4254 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+4264 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+4841 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+5054 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@411cc4f, org.springframework.security.web.context.SecurityContextPersistenceFilter@c917e2a, org.springframework.security.web.header.HeaderWriterFilter@667bc779, org.springframework.security.web.authentication.logout.LogoutFilter@2c4e0c4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@11bc3e45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42bab89f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d354889, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3563c7ef, org.springframework.security.web.session.SessionManagementFilter@62489062, org.springframework.security.web.access.ExceptionTranslationFilter@38905b8c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@297bb4f9]
+5515 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5521 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5549 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5570 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5589 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5599 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 5.116 seconds (JVM running for 6.371)
+6020 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+6020 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+6022 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
+571614 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+571617 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+571622 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+709  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+712  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 13708 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+714  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+752  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+752  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1942 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 76 ms. Found 10 JPA repository interfaces.
+2602 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2608 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2608 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2609 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2708 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2708 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1956 ms
+2861 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+3034 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+3204 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+3322 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+3527 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3619 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+4452 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+4468 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+5054 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+5268 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13c4c5e1, org.springframework.security.web.context.SecurityContextPersistenceFilter@77202116, org.springframework.security.web.header.HeaderWriterFilter@545e4e86, org.springframework.security.web.authentication.logout.LogoutFilter@17dc392f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17824c4f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f22d74f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@40d81aba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7032756e, org.springframework.security.web.session.SessionManagementFilter@664fc5cc, org.springframework.security.web.access.ExceptionTranslationFilter@7be478cd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@519c7e4a]
+5723 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5729 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5758 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5777 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5794 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5802 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 5.447 seconds (JVM running for 6.365)
+6253 [RMI TCP Connection(3)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+6253 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+6254 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
+50862 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+50865 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+50871 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+719  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 13220 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
 719  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-723  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 7848 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-724  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-763  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-763  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1680 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1756 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 69 ms. Found 10 JPA repository interfaces.
-2328 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2335 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2335 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2336 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2445 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2445 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1681 ms
-2600 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-3347 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-3782 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-3970 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-4157 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-4340 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-6652 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-6678 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-7455 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-7756 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16345568, org.springframework.security.web.context.SecurityContextPersistenceFilter@3eb6c334, org.springframework.security.web.header.HeaderWriterFilter@46c61b8c, org.springframework.security.web.authentication.logout.LogoutFilter@4200724b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@237ed738, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@102156c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fa476f3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48de5e52, org.springframework.security.web.session.SessionManagementFilter@17f87729, org.springframework.security.web.access.ExceptionTranslationFilter@6749d2da, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5426c2ca]
-8495 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-8500 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-8528 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-8576 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-8595 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-8635 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 8.258 seconds (JVM running for 9.249)
-8803 [RMI TCP Connection(1)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-8804 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-8806 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-36124 [http-nio-8080-exec-3] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-70372 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-70377 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-70386 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-664  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-664  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 8560 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-666  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-709  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-709  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1656 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1732 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 70 ms. Found 10 JPA repository interfaces.
-2344 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2351 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2351 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2352 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2444 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2444 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1734 ms
-2599 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-2741 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-2807 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-2859 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-2962 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-3054 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-3882 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-3890 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4594 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-4863 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6da7f88d, org.springframework.security.web.context.SecurityContextPersistenceFilter@327f4b90, org.springframework.security.web.header.HeaderWriterFilter@4d25368f, org.springframework.security.web.authentication.logout.LogoutFilter@693c26e1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@10e2dcb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23624495, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59e29e44, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f7e026, org.springframework.security.web.session.SessionManagementFilter@7ed17041, org.springframework.security.web.access.ExceptionTranslationFilter@51ab9b13, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1de4445d]
-5339 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5345 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5374 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5393 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5410 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5419 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 5.062 seconds (JVM running for 5.976)
-5723 [RMI TCP Connection(3)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-5723 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-5725 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-9036 [http-nio-8080-exec-1] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-280732 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-280735 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-280740 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-710  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-710  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 5440 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-712  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-748  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-748  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1640 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1715 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 68 ms. Found 10 JPA repository interfaces.
-2307 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2314 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2314 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2314 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2424 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2424 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1676 ms
-2583 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-2735 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-2802 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-2844 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-2949 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-3040 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-3834 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-3841 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4424 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-4644 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35830b38, org.springframework.security.web.context.SecurityContextPersistenceFilter@649ac102, org.springframework.security.web.header.HeaderWriterFilter@23624495, org.springframework.security.web.authentication.logout.LogoutFilter@5a5cdffd, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@28044801, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4407a3af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3aa526db, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62b8e1f2, org.springframework.security.web.session.SessionManagementFilter@5a7ca4fe, org.springframework.security.web.access.ExceptionTranslationFilter@7ed17041, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ba6e654]
-5115 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5121 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5152 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5171 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5189 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5197 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.82 seconds (JVM running for 5.795)
-5713 [RMI TCP Connection(3)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-5713 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-5714 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
-11517 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver –Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-22851 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver –Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.banksource.onlinebank.data.ExecutableTransactionData` from Array value (token `JsonToken.START_ARRAY`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.banksource.onlinebank.data.ExecutableTransactionData` from Array value (token `JsonToken.START_ARRAY`)<LF> at [Source: (PushbackInputStream); line: 1, column: 1]]
-153724 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by code 5544770912367460
-153730 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by code 5544330912367438
-153734 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
-153742 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
-153782 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-153786 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new debit transaction for card com.banksource.onlinebank.components.CardTransaction@3eaca2d8
-153787 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new credit transaction for card com.banksource.onlinebank.components.CardTransaction@7d7017c6
-167810 [http-nio-8080-exec-8] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-184962 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-184967 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-184976 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-710  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-712  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 13480 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-713  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-768  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-769  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1730 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1804 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 67 ms. Found 10 JPA repository interfaces.
-2384 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2391 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2391 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2391 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2536 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2536 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1767 ms
-2718 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-2856 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-2935 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-2994 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-3104 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-3195 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-4030 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-4037 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4634 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-4851 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57fce9e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4d2f1382, org.springframework.security.web.header.HeaderWriterFilter@7da7b3e3, org.springframework.security.web.authentication.logout.LogoutFilter@59e29e44, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5d323bea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51ab9b13, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4727e284, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@226c720d, org.springframework.security.web.session.SessionManagementFilter@4c8b0930, org.springframework.security.web.access.ExceptionTranslationFilter@81d1caf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7114b8c0]
-5316 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5321 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5349 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5369 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5386 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5394 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 5.019 seconds (JVM running for 5.946)
-5675 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-5676 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-5678 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-48783 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-48785 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-48790 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-677  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-677  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 11216 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-679  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-716  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-716  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1639 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1713 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 68 ms. Found 10 JPA repository interfaces.
-2288 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2295 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2295 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2296 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2404 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2404 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1688 ms
-2553 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-2692 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-2753 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-2803 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-2905 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2994 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-3815 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-3822 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4411 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-4628 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57053e36, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a8095b, org.springframework.security.web.header.HeaderWriterFilter@28da3030, org.springframework.security.web.authentication.logout.LogoutFilter@159116b3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@629ef50f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b9d4c91, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36b491f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3fdd48e5, org.springframework.security.web.session.SessionManagementFilter@4eeac512, org.springframework.security.web.access.ExceptionTranslationFilter@27fee0cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5694f373]
-5090 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5095 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5124 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5143 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5162 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5171 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.803 seconds (JVM running for 6.023)
-5444 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-5444 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-5446 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-7848 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-7851 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-7859 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-733  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 2216 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-735  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-735  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-771  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-771  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-1676 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-1755 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 72 ms. Found 10 JPA repository interfaces.
-2351 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2357 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2358 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2358 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2450 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2451 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1679 ms
-2606 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-2751 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-2814 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-2867 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-2973 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-3060 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-3864 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-3871 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4459 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-4676 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e7409f4, org.springframework.security.web.context.SecurityContextPersistenceFilter@70ac3c4b, org.springframework.security.web.header.HeaderWriterFilter@4e7aa5a1, org.springframework.security.web.authentication.logout.LogoutFilter@2542b56d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@347eeb73, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58d57eac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35b9d0f7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78123c87, org.springframework.security.web.session.SessionManagementFilter@4e5f928e, org.springframework.security.web.access.ExceptionTranslationFilter@6dfbe679, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45b8a449]
-5141 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5147 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5177 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5197 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5214 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5223 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.832 seconds (JVM running for 5.815)
-5559 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-5560 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-5562 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-36231 [http-nio-8080-exec-3] INFO  c.b.o.s.m.BankCardService –Found bank card by code 5544770912367460
-583758 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-583762 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-583768 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-720  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-720  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 13792 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-722  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-768  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-768  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2097 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 71 ms. Found 10 JPA repository interfaces.
-2669 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-2676 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-2676 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-2677 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-2784 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-2784 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 2015 ms
-2938 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-3080 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-3144 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-3193 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-3295 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-3388 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-4200 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-4207 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-4795 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-5014 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10e26cf5, org.springframework.security.web.context.SecurityContextPersistenceFilter@57b2f13e, org.springframework.security.web.header.HeaderWriterFilter@1d7af4a3, org.springframework.security.web.authentication.logout.LogoutFilter@3e8effd5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@f8df7ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4945f3d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62dc6b71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ec726c4, org.springframework.security.web.session.SessionManagementFilter@53df8f42, org.springframework.security.web.access.ExceptionTranslationFilter@7be3a379, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35830b38]
-5485 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-5491 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-5522 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-5542 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-5560 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-5570 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 5.181 seconds (JVM running for 6.101)
-6122 [RMI TCP Connection(1)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-6122 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-6124 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-12470 [http-nio-8080-exec-2] INFO  c.b.o.s.m.BankCardService –Found bank card by code 5544770912367460
-242306 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-242309 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-242314 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
-5444 [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
-5566 [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 4132 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
-5567 [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
-6000 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-6001 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-11332 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-11767 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 396 ms. Found 10 JPA repository interfaces.
-14341 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
-14361 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
-14362 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
-14362 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
-14540 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
-14540 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 8539 ms
-14883 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
-15568 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
-16053 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
-16232 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
-16404 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-16584 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-18890 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-18898 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
-19749 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-20117 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@542a1b93, org.springframework.security.web.context.SecurityContextPersistenceFilter@13a2479, org.springframework.security.web.header.HeaderWriterFilter@55485bce, org.springframework.security.web.authentication.logout.LogoutFilter@24d551ac, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1f0b57b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1398220c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e17aa27, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c1e4629, org.springframework.security.web.session.SessionManagementFilter@1d02d5fa, org.springframework.security.web.access.ExceptionTranslationFilter@28754087, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@546f3ec6]
-20758 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
-20764 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
-20792 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
-20823 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
-20842 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-20865 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 18.425 seconds (JVM running for 23.193)
-21436 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
-21437 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
-21439 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
-44195 [http-nio-8080-exec-1] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-155014 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
-155018 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
-155064 [http-nio-8080-exec-6] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-155068 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new debit transaction for card com.banksource.onlinebank.components.CardTransaction@1c5f8d40
-155068 [http-nio-8080-exec-6] INFO  c.b.o.s.m.CardTransactionService –Added new credit transaction for card com.banksource.onlinebank.components.CardTransaction@7903304
-160216 [http-nio-8080-exec-7] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-171297 [http-nio-8080-exec-8] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
-189682 [http-nio-8080-exec-9] INFO  c.b.o.s.m.BankCardService –Found bank card by id 1
-2166087 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
-2166282 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
-2166287 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+721  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+764  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+764  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1777 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+1851 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 69 ms. Found 10 JPA repository interfaces.
+2421 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2428 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2428 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2428 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2534 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2535 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1770 ms
+2680 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+2820 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+2882 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+2930 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+3032 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3121 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+3932 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+3939 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+4501 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+4710 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34ad09d4, org.springframework.security.web.context.SecurityContextPersistenceFilter@15825f21, org.springframework.security.web.header.HeaderWriterFilter@2de151be, org.springframework.security.web.authentication.logout.LogoutFilter@7ae994ab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@575c1318, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25bb0065, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c8f5a2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b80ce75, org.springframework.security.web.session.SessionManagementFilter@574d2d68, org.springframework.security.web.access.ExceptionTranslationFilter@5eccc3b2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@120699d4]
+5164 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5171 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5200 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5218 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5235 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5243 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.841 seconds (JVM running for 6.056)
+5350 [RMI TCP Connection(2)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+5351 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+5352 [RMI TCP Connection(2)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
+224316 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+224319 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+224324 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+645  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+645  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 9616 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+647  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+688  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+689  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1721 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+1798 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 72 ms. Found 10 JPA repository interfaces.
+2352 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2359 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2359 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2359 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2466 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2466 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1777 ms
+2610 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+2747 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+2815 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+2876 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+2989 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3075 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+3907 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+3915 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+4517 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+4769 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a488b39, org.springframework.security.web.context.SecurityContextPersistenceFilter@26cc6533, org.springframework.security.web.header.HeaderWriterFilter@b988ca5, org.springframework.security.web.authentication.logout.LogoutFilter@2323d4aa, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@165f7ee4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14d3c0f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@496c73ca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75c7dbec, org.springframework.security.web.session.SessionManagementFilter@52b593b0, org.springframework.security.web.access.ExceptionTranslationFilter@179d8e27, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ec2618c]
+5255 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5261 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5287 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5310 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5326 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5335 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.986 seconds (JVM running for 6.061)
+5864 [RMI TCP Connection(3)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+5864 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+5866 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 2 ms
+308168 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+308172 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+308175 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+688  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+688  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 11360 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+690  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+727  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+727  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1652 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+1726 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 67 ms. Found 10 JPA repository interfaces.
+2347 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2353 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2354 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2354 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2474 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2474 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1746 ms
+2624 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+2764 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+2825 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+2876 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+2976 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3068 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+3863 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+3870 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+4431 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+4638 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3048e230, org.springframework.security.web.context.SecurityContextPersistenceFilter@1fd9c454, org.springframework.security.web.header.HeaderWriterFilter@3d5e6c76, org.springframework.security.web.authentication.logout.LogoutFilter@3c2a6f67, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3d3bb81f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@beb1ef0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a1b8291, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70fb7365, org.springframework.security.web.session.SessionManagementFilter@175cf915, org.springframework.security.web.access.ExceptionTranslationFilter@7f935fa7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@185fa61b]
+5092 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5104 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5150 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5180 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5198 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5207 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.836 seconds (JVM running for 6.24)
+5564 [RMI TCP Connection(3)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+5564 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+5565 [RMI TCP Connection(3)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
+123225 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+123228 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+123233 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
+671  [background-preinit] INFO  o.h.validator.internal.util.Version –HV000001: Hibernate Validator 6.2.0.Final
+671  [restartedMain] INFO  c.b.o.OnlineBankApplication –Starting OnlineBankApplication using Java 17.0.1 on DESKTOP-DMS2878 with PID 9672 (C:\Users\konst\IdeaProjects\online-bank-spring-react\target\classes started by konst in C:\Users\konst\IdeaProjects\online-bank-spring-react)
+673  [restartedMain] INFO  c.b.o.OnlineBankApplication –No active profile set, falling back to default profiles: default
+711  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+712  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor –For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+1782 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+1860 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate –Finished Spring Data repository scanning in 72 ms. Found 10 JPA repository interfaces.
+2428 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat initialized with port(s): 8080 (http)
+2435 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Initializing ProtocolHandler ["http-nio-8080"]
+2435 [restartedMain] INFO  o.a.catalina.core.StandardService –Starting service [Tomcat]
+2435 [restartedMain] INFO  o.a.catalina.core.StandardEngine –Starting Servlet engine: [Apache Tomcat/9.0.54]
+2529 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring embedded WebApplicationContext
+2529 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext –Root WebApplicationContext: initialization completed in 1817 ms
+2677 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Starting...
+2818 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Start completed.
+2883 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper –HHH000204: Processing PersistenceUnitInfo [name: default]
+2931 [restartedMain] INFO  org.hibernate.Version –HHH000412: Hibernate ORM core version 5.4.32.Final
+3030 [restartedMain] INFO  o.h.annotations.common.Version –HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+3119 [restartedMain] INFO  org.hibernate.dialect.Dialect –HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+3926 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator –HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+3934 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Initialized JPA EntityManagerFactory for persistence unit 'default'
+4507 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration –spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+4721 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain –Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1dcc3d9a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e37b8cc, org.springframework.security.web.header.HeaderWriterFilter@64c01592, org.springframework.security.web.authentication.logout.LogoutFilter@74cabc1a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@af97453, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e85d067, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cc292d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c7e48d, org.springframework.security.web.session.SessionManagementFilter@48b375c3, org.springframework.security.web.access.ExceptionTranslationFilter@522e9900, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@402d8a52]
+5169 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer –LiveReload server is running on port 35729
+5174 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver –Exposing 1 endpoint(s) beneath base path '/actuator'
+5201 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol –Starting ProtocolHandler ["http-nio-8080"]
+5220 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer –Tomcat started on port(s): 8080 (http) with context path ''
+5236 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor –No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+5245 [restartedMain] INFO  c.b.o.OnlineBankApplication –Started OnlineBankApplication in 4.89 seconds (JVM running for 5.869)
+5434 [RMI TCP Connection(1)-26.163.101.223] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] –Initializing Spring DispatcherServlet 'dispatcherServlet'
+5434 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Initializing Servlet 'dispatcherServlet'
+5436 [RMI TCP Connection(1)-26.163.101.223] INFO  o.s.web.servlet.DispatcherServlet –Completed initialization in 1 ms
+8889 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+8892 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+8895 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.

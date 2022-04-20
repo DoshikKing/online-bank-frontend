@@ -1,9 +1,9 @@
 import './App.css';
 import {Component} from "react";
-import NavBarRoutes from "./component/NavBarRoutes";
+import NavBarRoutes from "./component/routes/NavBarRoutes";
 
 // TODO: Сделать роутинг к различным компонентам приложения.
-//  Сделать следующие функции в UserService.js:
+//  Сделать следующие функции в userService.js:
 //  1) авторизации в API;
 //  2) для получение данных пользователя;
 //  3) для отправки запроса к API на проведения транзакции;

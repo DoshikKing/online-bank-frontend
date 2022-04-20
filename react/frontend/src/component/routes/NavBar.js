@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom";
+import isAuthenticated from "../../helpers/isAuthenticated"
 
 export default function NavBar() {
 
@@ -26,6 +27,18 @@ export default function NavBar() {
                                     Sign in
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/home" >
+                                    Home
+                                </NavLink>
+                            </li>
+                            {isAuthenticated(
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/home" >
+                                        Home
+                                    </NavLink>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>
