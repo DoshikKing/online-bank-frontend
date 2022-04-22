@@ -10,16 +10,26 @@ export const authenticationService = {
 };
 
 function login(username, password) {
+    // const data = window.btoa(username + ':' + password);
+    // const requestOptions = {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ username, password })
+    // };
+    // return fetch(`${config.apiURL}/login`, requestOptions)
+    //     .then(response => {
+    //         // login successful if there's a user in the response
+    //         if (response.data === "OK") {
+    //             localStorage.setItem('currentUser', JSON.stringify( '{token: ' + data + '}'));
+    //         }
+    //         return localStorage.getItem('currentUser');
+    //     });
     const data = window.btoa(username + ':' + password);
     return axios
     ({
         method: "POST",
-        mode: "cors",
-        withCredentials: true,
         url:`${config.apiURL}/login`,
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Basic ${data}`,
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Headers': 'origin, content-type, accept, authorization'}
+        headers: { 'Content-Type': 'application/json', "Accept": 'application/json', 'Authorization': `Basic ${data}`}
     })
     .then(function (response)
         {

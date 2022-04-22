@@ -39,12 +39,13 @@ class Login extends React.Component {
         this.setState({loading: true});
         authenticationService.login(username, password)
             .then(
-                user => {
-                    const {from} = this.props.location.state || {from: {pathname: "/"}};
+                currentUser => {
+                    const {from} = this.props.location.state || {from: {pathname: "/home"}};
                     this.props.history.push(from);
                 },
                 error => this.setState({error, loading: false})
             );
+        return "redirect:/welcome";
     }
     render() {
         const { username, password, submitted, loading, error} = this.state;
