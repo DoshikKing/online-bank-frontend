@@ -1,5 +1,6 @@
 import React from 'react';
 import { authenticationService } from '../../service/authenticationService';
+import {Navigate} from "react-router-dom";
 
 
 class Login extends React.Component {
@@ -37,15 +38,16 @@ class Login extends React.Component {
         }
 
         this.setState({loading: true});
-        authenticationService.login(username, password)
-            .then(
-                currentUser => {
+        const status = authenticationService.login(username, password);
+        status.then(
+            data => {
+                if (data === "GOOD"){
                     const {from} = this.props.location.state || {from: {pathname: "/home"}};
                     this.props.history.push(from);
-                },
-                error => this.setState({error, loading: false})
-            );
-        return "redirect:/welcome";
+                }
+            },
+            error => this.setState({error, loading: false})
+        );
     }
     render() {
         const { username, password, submitted, loading, error} = this.state;

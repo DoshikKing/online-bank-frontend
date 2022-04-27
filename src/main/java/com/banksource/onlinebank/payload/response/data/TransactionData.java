@@ -1,4 +1,4 @@
-package com.banksource.onlinebank.data;
+package com.banksource.onlinebank.payload.response.data;
 
 import lombok.Data;
 

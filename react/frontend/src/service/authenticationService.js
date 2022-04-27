@@ -10,20 +10,6 @@ export const authenticationService = {
 };
 
 function login(username, password) {
-    // const data = window.btoa(username + ':' + password);
-    // const requestOptions = {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ username, password })
-    // };
-    // return fetch(`${config.apiURL}/login`, requestOptions)
-    //     .then(response => {
-    //         // login successful if there's a user in the response
-    //         if (response.data === "OK") {
-    //             localStorage.setItem('currentUser', JSON.stringify( '{token: ' + data + '}'));
-    //         }
-    //         return localStorage.getItem('currentUser');
-    //     });
     const data = window.btoa(username + ':' + password);
     return axios
     ({
@@ -33,10 +19,13 @@ function login(username, password) {
     })
     .then(function (response)
         {
-            if(!(response.data === "OK")) {
-                localStorage.setItem('currentUser', JSON.stringify( '{token: ' + data + '}'));
+            if(response.status === 200){
+                if(!(response.data === "OK")) {
+                    localStorage.setItem('currentUser', JSON.stringify( '{token: ' + data + '}'));
+                }
+                return "GOOD";
             }
-            return localStorage.getItem('currentUser');
+            return "BAD";
         }
     )
 }

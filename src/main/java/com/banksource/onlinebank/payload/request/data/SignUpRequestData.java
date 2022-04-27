@@ -1,9 +1,9 @@
-package com.banksource.onlinebank.security;
+package com.banksource.onlinebank.payload.request.data;
 
 import lombok.Data;
 
 @Data
-public class SignUpRequest {
+public class SignUpRequestData {
 
     private String login;
     private String password;

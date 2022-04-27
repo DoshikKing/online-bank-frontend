@@ -1,19 +1,14 @@
-package com.banksource.onlinebank.security;
+package com.banksource.onlinebank.controller;
 
-import com.banksource.onlinebank.components.Role;
 import com.banksource.onlinebank.components.User;
-import com.banksource.onlinebank.data.SimpleResponseData;
-import com.banksource.onlinebank.service.mainServices.RoleService;
+import com.banksource.onlinebank.payload.request.data.SignUpRequestData;
+import com.banksource.onlinebank.payload.response.data.SimpleResponseData;
 import com.banksource.onlinebank.service.mainServices.userService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -37,7 +32,7 @@ import javax.validation.Valid;
 //        return "registration";
 //    }
 //    @PostMapping
-//    public String registration(@Valid SignUpRequest signUpRequest, BindingResult result, Model model){
+//    public String registration(@Valid SignUpRequestData signUpRequest, BindingResult result, Model model){
 //        if (result.hasErrors()) return "registration";
 //
 //        User user = userService.findUser(signUpRequest.getLogin());
@@ -78,7 +73,7 @@ import javax.validation.Valid;
 //}
 
 @RestController
-@RequestMapping("/registration")
+@RequestMapping("/api/registration")
 public class userController {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -96,12 +91,12 @@ public class userController {
     }
 
     @PostMapping
-    public ResponseEntity<SimpleResponseData> registration(@RequestBody SignUpRequest signUpRequest){
+    public ResponseEntity<SimpleResponseData> registration(@Valid @RequestBody SignUpRequestData signUpRequestData){
         try {
-            User user = userService.findUser(signUpRequest.getLogin());
+            User user = userService.findUser(signUpRequestData.getLogin());
             SimpleResponseData simpleResponseData = new SimpleResponseData();
 
-            if (!signUpRequest.getLogin().equals(user.getLogin())){
+            if (!signUpRequestData.getLogin().equals(user.getLogin())){
                 simpleResponseData.setComment("User with this username does not exist.");
                 return new ResponseEntity<>(simpleResponseData, HttpStatus.NOT_FOUND);
             }
@@ -116,18 +111,18 @@ public class userController {
                 return new ResponseEntity<>(simpleResponseData, HttpStatus.BAD_REQUEST);
             }
 
-            if(!signUpRequest.getRegistration_code().equals(user.getRegistrationCode())){
+            if(!signUpRequestData.getRegistration_code().equals(user.getRegistrationCode())){
                 simpleResponseData.setComment("Control registration code is failed.");
                 return new ResponseEntity<>(simpleResponseData, HttpStatus.BAD_REQUEST);
             }
 
-            if (!signUpRequest.getPassword().equals(signUpRequest.getRepass())){
+            if (!signUpRequestData.getPassword().equals(signUpRequestData.getRepass())){
                 simpleResponseData.setComment("Password mismatch.");
                 return new ResponseEntity<>(simpleResponseData, HttpStatus.BAD_REQUEST);
             }
 
             try {
-                userService.updateById(bCryptPasswordEncoder.encode(signUpRequest.getPassword()), true, user.getId());
+                userService.updateById(bCryptPasswordEncoder.encode(signUpRequestData.getPassword()), true, user.getId());
                 simpleResponseData.setComment("Registered successfully.");
                 return new ResponseEntity<>(simpleResponseData, HttpStatus.OK);
             } catch (UsernameNotFoundException e) {

@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="/error")
+@RequestMapping(path="api/error")
 public class errorController {
     @GetMapping
     public ResponseEntity errorGet() {

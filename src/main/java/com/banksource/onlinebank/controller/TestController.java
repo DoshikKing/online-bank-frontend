@@ -1,6 +1,6 @@
 package com.banksource.onlinebank.controller;
 
-import com.banksource.onlinebank.data.TestData;
+import com.banksource.onlinebank.payload.response.data.TestData;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

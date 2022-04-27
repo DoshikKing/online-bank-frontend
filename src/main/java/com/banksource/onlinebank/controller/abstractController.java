@@ -2,7 +2,7 @@ package com.banksource.onlinebank.controller;
 
 import com.banksource.onlinebank.components.Account;
 import com.banksource.onlinebank.components.BankCard;
-import com.banksource.onlinebank.data.TransactionData;
+import com.banksource.onlinebank.payload.response.data.TransactionData;
 import com.banksource.onlinebank.service.mainServices.AccountService;
 import com.banksource.onlinebank.service.mainServices.BankCardService;
 import com.banksource.onlinebank.work.AbstractOfTransactionsWrapper;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/abstract", produces="application/json")
+@RequestMapping(path="/api/abstract", produces="application/json")
 public class abstractController {
 
     private BankCardService bankCardService;

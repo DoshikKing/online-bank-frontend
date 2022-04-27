@@ -1,7 +1,7 @@
 package com.banksource.onlinebank.work;
 
 import com.banksource.onlinebank.components.Account;
-import com.banksource.onlinebank.data.AccountData;
+import com.banksource.onlinebank.payload.response.data.AccountData;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

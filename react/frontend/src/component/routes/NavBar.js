@@ -1,3 +1,4 @@
+import React from "react";
 import {NavLink} from "react-router-dom";
 import isAuthenticated from "../../helpers/isAuthenticated"
 
@@ -13,7 +14,7 @@ export default function NavBar() {
                     <div>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/welcome" >
+                                <NavLink className="nav-link" to="/" >
                                     Welcome
                                 </NavLink>
                             </li>

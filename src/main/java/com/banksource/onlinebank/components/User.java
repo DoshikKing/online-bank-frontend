@@ -29,7 +29,6 @@ public class User implements Serializable {
     @JoinColumn(name = "client_id", nullable = false)
     public Client client;
 
-
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",

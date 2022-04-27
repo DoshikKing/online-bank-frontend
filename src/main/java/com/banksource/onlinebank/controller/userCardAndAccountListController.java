@@ -1,7 +1,7 @@
 package com.banksource.onlinebank.controller;
 
-import com.banksource.onlinebank.data.AccountData;
-import com.banksource.onlinebank.data.CardData;
+import com.banksource.onlinebank.payload.response.data.AccountData;
+import com.banksource.onlinebank.payload.response.data.CardData;
 import com.banksource.onlinebank.service.mainServices.userService;
 import com.banksource.onlinebank.work.AccountListWrapper;
 import com.banksource.onlinebank.work.CardListWrapper;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 // TODO: добавить хедеры CORS везде. Не работает с реактом из-зи этого.
 @RestController
-@RequestMapping(path="/list", produces="application/json")
+@RequestMapping(path="/api/list", produces="application/json")
 public class userCardAndAccountListController {
 
     private userService userService;

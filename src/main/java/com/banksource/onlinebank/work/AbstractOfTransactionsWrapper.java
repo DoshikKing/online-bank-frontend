@@ -2,7 +2,7 @@ package com.banksource.onlinebank.work;
 
 import com.banksource.onlinebank.components.CardTransaction;
 import com.banksource.onlinebank.components.Transaction;
-import com.banksource.onlinebank.data.TransactionData;
+import com.banksource.onlinebank.payload.response.data.TransactionData;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

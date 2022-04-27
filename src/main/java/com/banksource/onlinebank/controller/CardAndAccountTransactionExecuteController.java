@@ -4,7 +4,7 @@ import com.banksource.onlinebank.components.Account;
 import com.banksource.onlinebank.components.BankCard;
 import com.banksource.onlinebank.components.CardTransaction;
 import com.banksource.onlinebank.components.Transaction;
-import com.banksource.onlinebank.data.ExecutableTransactionData;
+import com.banksource.onlinebank.payload.response.data.ExecutableTransactionData;
 import com.banksource.onlinebank.service.mainServices.AccountService;
 import com.banksource.onlinebank.service.mainServices.BankCardService;
 import com.banksource.onlinebank.service.mainServices.CardTransactionService;
@@ -21,7 +21,7 @@ import java.util.UUID;
 import java.sql.Date;
 
 @RestController
-@RequestMapping(path="/pay", produces="application/json")
+@RequestMapping(path="/api/pay", produces="application/json")
 public class CardAndAccountTransactionExecuteController {
 
     private CardTransactionService cardTransactionService;
