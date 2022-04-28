@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import UserService from "../../service/user.service";
+import EventBus from "../../common/EventBus";
 
 
 
@@ -29,6 +30,9 @@ export default class Home extends Component {
                         error.message ||
                         error.toString()
                 });
+                if (error.response && error.response.status === 403) {
+                    EventBus.dispatch("logout");
+                }
             }
         );
         UserService.getListOfAccounts().then(
@@ -44,6 +48,9 @@ export default class Home extends Component {
                         error.message ||
                         error.toString()
                 });
+                if (error.response && error.response.status === 403) {
+                    EventBus.dispatch("logout");
+                }
             }
         );
     }
