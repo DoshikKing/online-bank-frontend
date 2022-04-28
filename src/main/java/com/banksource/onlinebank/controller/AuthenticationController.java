@@ -1,12 +1,10 @@
 package com.banksource.onlinebank.controller;
 
 import com.banksource.onlinebank.components.RefreshToken;
-import com.banksource.onlinebank.components.User;
 import com.banksource.onlinebank.exception.TokenRefreshException;
 import com.banksource.onlinebank.payload.request.data.LogOutRequestData;
 import com.banksource.onlinebank.payload.request.data.LoginRequestData;
 import com.banksource.onlinebank.payload.request.data.TokenRefreshRequestData;
-import com.banksource.onlinebank.payload.response.data.ErrorMessageData;
 import com.banksource.onlinebank.payload.response.data.JwtResponseData;
 import com.banksource.onlinebank.payload.response.data.RefreshTokenResponseData;
 import com.banksource.onlinebank.payload.response.data.SimpleResponseData;
@@ -23,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Date;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -59,7 +56,7 @@ public class AuthenticationController {
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getById());
 
         JwtResponseData jwtResponseData = new JwtResponseData();
-        jwtResponseData.setToken(jwt);
+        jwtResponseData.setAccessToken(jwt);
         jwtResponseData.setRefreshToken(refreshToken.getToken());
         jwtResponseData.setId(userDetails.getById());
 
