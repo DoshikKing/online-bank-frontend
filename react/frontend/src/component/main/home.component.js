@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import UserService from "../../service/user.service";
 import EventBus from "../../common/EventBus";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -16,7 +17,6 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        console.log(localStorage.getItem("user"));
         UserService.getListOfCards().then(
             response => {
                 this.setState({
@@ -65,6 +65,9 @@ export default class Home extends Component {
                         <td>{info.summ}</td>
                         <td>{info.statusTime}</td>
                         <td>{info.paySystem}</td>
+                        <td><NavLink className="nav-link" to={"/abstract/card/" + info.id}>
+                            Выписка
+                        </NavLink></td>
                     </tr>
                 )
             }
@@ -80,6 +83,9 @@ export default class Home extends Component {
                         <td>{info.accountNumber}</td>
                         <td>{info.statusTime}</td>
                         <td>{info.balance}</td>
+                        <td><NavLink className="nav-link" to={"/abstract/account/" + info.id}>
+                            Выписка
+                        </NavLink></td>
                     </tr>
                 )
             }
@@ -98,6 +104,7 @@ export default class Home extends Component {
                             <th scope="col">Summ</th>
                             <th scope="col">Status Time</th>
                             <th scope="col">Pay System</th>
+                            <th scope="col">#</th>
                         </tr>
                         </thead>
                         {this.CardDataDisplay()}
@@ -109,6 +116,7 @@ export default class Home extends Component {
                             <th scope="col">Account number</th>
                             <th scope="col">Status time</th>
                             <th scope="col">Balance</th>
+                            <th scope="col">#</th>
                         </tr>
                         </thead>
                         {this.AccountDataDisplay()}

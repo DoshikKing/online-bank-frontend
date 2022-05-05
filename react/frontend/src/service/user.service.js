@@ -9,6 +9,14 @@ class UserService {
         return api.get("/list/accounts");
     }
 
+    getCardAbstract(path) {
+        return api.get("abstract/card/" + path);
+    }
+
+    getAccountAbstract(path) {
+        return api.get("abstract/account/" + path);
+    }
+
     getPublicContent() {
         return api.get('/test/all');
     }
