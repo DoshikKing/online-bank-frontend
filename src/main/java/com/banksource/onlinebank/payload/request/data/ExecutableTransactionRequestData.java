@@ -1,9 +1,9 @@
-package com.banksource.onlinebank.payload.response.data;
+package com.banksource.onlinebank.payload.request.data;
 
 import lombok.Data;
 
 @Data
-public class ExecutableTransactionData {
+public class ExecutableTransactionRequestData {
 
     private Long debit_id;
     private Long credit_id;

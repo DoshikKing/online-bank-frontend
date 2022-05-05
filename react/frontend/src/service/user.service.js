@@ -17,20 +17,23 @@ class UserService {
         return api.get("abstract/account/" + path);
     }
 
-    getPublicContent() {
-        return api.get('/test/all');
-    }
+    executeTransaction(from, to, amount, comment, type){
+        if (type === "card"){
+            return api.post("pay/with_card",{
+                debit_id: from,
+                credit_id: to,
+                amount,
+                comment
+            });
+        } else {
+            return api.post("pay/with_account",{
+                debit_id: from,
+                credit_id: to,
+                amount,
+                comment
+            });
+        }
 
-    getUserBoard() {
-        return api.get('/test/user');
-    }
-
-    getModeratorBoard() {
-        return api.get('/test/mod');
-    }
-
-    getAdminBoard() {
-        return api.get('/test/admin');
     }
 }
 

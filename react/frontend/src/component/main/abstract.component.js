@@ -66,7 +66,6 @@ export default class Abstract extends Component {
                         <td>{info.summ}</td>
                         <td>{info.comment}</td>
                         <td>{info.transactionTime}</td>
-                        <td>{info.isDebit}</td>
                     </tr>
                 )
             }
@@ -80,11 +79,10 @@ export default class Abstract extends Component {
                     <table className="table table-striped table-sm">
                         <thead>
                         <tr>
-                            <th scope="col">Code</th>
-                            <th scope="col">Summ</th>
-                            <th scope="col">Comment</th>
-                            <th scope="col">Transaction Time</th>
-                            <th scope="col">Debit ?</th>
+                            <th scope="col">Номер</th>
+                            <th scope="col">Сумма</th>
+                            <th scope="col">Комментарий</th>
+                            <th scope="col">Время транзакции</th>
                         </tr>
                         </thead>
                         {this.TransactionDataDisplay()}

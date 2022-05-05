@@ -22,6 +22,7 @@ export default class Home extends Component {
                 this.setState({
                     cards: response.data
                 });
+                localStorage.setItem("cards", JSON.stringify(this.state.cards));
             },
             error => {
                 this.setState({
@@ -40,6 +41,7 @@ export default class Home extends Component {
                 this.setState({
                     accounts: response.data
                 });
+                localStorage.setItem("accounts", JSON.stringify(this.state.accounts));
             },
             error => {
                 this.setState({
@@ -59,16 +61,24 @@ export default class Home extends Component {
         return this.state.cards.map(
             (info) => {
                 return (
-                    <tr>
-                        <td>{info.id}</td>
-                        <td>{info.code}</td>
-                        <td>{info.summ}</td>
-                        <td>{info.statusTime}</td>
-                        <td>{info.paySystem}</td>
-                        <td><NavLink className="nav-link" to={"/abstract/card/" + info.id}>
-                            Выписка
-                        </NavLink></td>
-                    </tr>
+                    <div className="col">
+                        <img src="card.png" className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
+                        <div className="card-body text-center">
+                            <h4>{info.code} {info.paySystem}</h4>
+                            <h5>Остаток: {info.summ} ₽</h5>
+                            <h6> Срок: {info.statusTime}</h6>
+                            <button className="btn btn-primary btn-sm">
+                                <NavLink className="nav-link link-light " to={"/abstract"} state={{id: info.id, type: "card"}}>
+                                    Получить выписку
+                                </NavLink>
+                            </button>
+                            <button className="btn btn-primary btn-sm">
+                                <NavLink className="nav-link link-light " to={"/transfer"} state={{id: info.id, type: "card"}}>
+                                    Перевести
+                                </NavLink>
+                            </button>
+                        </div>
+                    </div>
                 )
             }
         );
@@ -78,15 +88,24 @@ export default class Home extends Component {
         return this.state.accounts.map(
             (info) => {
                 return (
-                    <tr>
-                        <td>{info.id}</td>
-                        <td>{info.accountNumber}</td>
-                        <td>{info.statusTime}</td>
-                        <td>{info.balance}</td>
-                        <td><NavLink className="nav-link" to={"/abstract/account/" + info.id}>
-                            Выписка
-                        </NavLink></td>
-                    </tr>
+                    <div className="col">
+                        <img src="person.png" className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
+                        <div className="card-body text-center">
+                            <h4>{info.accountNumber}</h4>
+                            <h5>Остаток: {info.balance} ₽</h5>
+                            <h6> Срок: {info.statusTime}</h6>
+                            <button className="btn btn-primary btn-sm">
+                                <NavLink className="nav-link link-light " to={"/abstract"} state={{id: info.id, type: "account"}}>
+                                    Получить выписку
+                                </NavLink>
+                            </button>
+                            <button className="btn btn-primary btn-sm">
+                                <NavLink className="nav-link link-light " to={"/transfer"} state={{id: info.id, type: "account"}}>
+                                    Перевести
+                                </NavLink>
+                            </button>
+                        </div>
+                    </div>
                 )
             }
         );
@@ -95,32 +114,15 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container">
-                <div className="table-responsive">
-                    <table className="table table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Code</th>
-                            <th scope="col">Summ</th>
-                            <th scope="col">Status Time</th>
-                            <th scope="col">Pay System</th>
-                            <th scope="col">#</th>
-                        </tr>
-                        </thead>
-                        {this.CardDataDisplay()}
-                    </table>
-                    <table className="table table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Account number</th>
-                            <th scope="col">Status time</th>
-                            <th scope="col">Balance</th>
-                            <th scope="col">#</th>
-                        </tr>
-                        </thead>
-                        {this.AccountDataDisplay()}
-                    </table>
+                <div className="back">
+                    <div className="container">
+                        <div className="row">
+                            {this.CardDataDisplay()}
+                        </div>
+                        <div className="row">
+                            {this.AccountDataDisplay()}
+                        </div>
+                    </div>
                 </div>
             </div>
         );

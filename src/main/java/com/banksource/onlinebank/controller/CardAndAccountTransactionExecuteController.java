@@ -4,7 +4,7 @@ import com.banksource.onlinebank.components.Account;
 import com.banksource.onlinebank.components.BankCard;
 import com.banksource.onlinebank.components.CardTransaction;
 import com.banksource.onlinebank.components.Transaction;
-import com.banksource.onlinebank.payload.response.data.ExecutableTransactionData;
+import com.banksource.onlinebank.payload.request.data.ExecutableTransactionRequestData;
 import com.banksource.onlinebank.service.mainServices.AccountService;
 import com.banksource.onlinebank.service.mainServices.BankCardService;
 import com.banksource.onlinebank.service.mainServices.CardTransactionService;
@@ -43,14 +43,14 @@ public class CardAndAccountTransactionExecuteController {
 
 
     @PostMapping("/with_card")
-    public ResponseEntity payment_with_card(@RequestBody ExecutableTransactionData executableTransactionData,
+    public ResponseEntity payment_with_card(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
                           Authentication authentication){
 
         try{
-            Long debit_id = executableTransactionData.getDebit_id();
-            Long credit_id = executableTransactionData.getCredit_id();
-            float sum = executableTransactionData.getAmount();
-            String comment = executableTransactionData.getComment();
+            Long debit_id = executableTransactionRequestData.getDebit_id();
+            Long credit_id = executableTransactionRequestData.getCredit_id();
+            float sum = executableTransactionRequestData.getAmount();
+            String comment = executableTransactionRequestData.getComment();
 
             if (checkAuthentication.check(authentication.getName(), bankCardService.getCardById(debit_id).getClient().getUser().getLogin())){
                 java.util.Date time = new java.util.Date();
@@ -95,14 +95,14 @@ public class CardAndAccountTransactionExecuteController {
     }
 
     @PostMapping("with_account")
-    public ResponseEntity payment_with_account(@RequestBody ExecutableTransactionData executableTransactionData,
+    public ResponseEntity payment_with_account(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
                                   Authentication authentication){
 
         try {
-            Long debit_id = executableTransactionData.getDebit_id();
-            Long credit_id = executableTransactionData.getCredit_id();
-            float sum = executableTransactionData.getAmount();
-            String comment = executableTransactionData.getComment();
+            Long debit_id = executableTransactionRequestData.getDebit_id();
+            Long credit_id = executableTransactionRequestData.getCredit_id();
+            float sum = executableTransactionRequestData.getAmount();
+            String comment = executableTransactionRequestData.getComment();
 
             if (checkAuthentication.check(authentication.getName(), accountService.findById(debit_id).getClient().getUser().getLogin())){
                 java.util.Date time = new java.util.Date();

@@ -3,8 +3,7 @@ import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom";
 import Welcome from "../main/welcome.component";
 import Login from "../main/login.component"
 import Home from "../main/home.component";
-import Abstract from "../main/abstract.component";
-import AbstractHelper from "../../helpers/AbstractHelper"
+import PassPropsHelper, {PassPropsHelperTransactions} from "../../helpers/PassPropsHelper"
 
 import AuthService from "../../service/auth.service";
 import EventBus from "../../common/EventBus";
@@ -100,7 +99,8 @@ class NavBarRoutes extends Component {
                         <Route exact path="/" element={<Welcome />} />
                         <Route exact path="login" element={<Login/>} />
                         <Route exact path="home" element={<Home/>} />
-                        <Route exact path="abstract/:type/:id" element={<AbstractHelper /> } />
+                        <Route exact path="abstract" element={<PassPropsHelper /> } />
+                        <Route exact path="transfer" element={<PassPropsHelperTransactions /> } />
                         <Route
                             path="*"
                             element={
