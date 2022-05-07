@@ -58,7 +58,7 @@ class NavBarRoutes extends Component {
                                     <ul className="navbar-nav ml-auto">
                                         {currentUser ?
                                             (
-                                                <div>
+                                                <>
                                                     <li className="nav-item">
                                                         <NavLink className="nav-link" to="/home" >
                                                             Home
@@ -69,11 +69,11 @@ class NavBarRoutes extends Component {
                                                             LogOut
                                                         </a>
                                                     </li>
-                                                </div>
+                                                </>
                                             )
                                             :
                                             (
-                                                <div className="container">
+                                                <>
                                                     <li className="nav-item">
                                                         <NavLink className="nav-link" to="/" >
                                                             Welcome
@@ -89,7 +89,7 @@ class NavBarRoutes extends Component {
                                                             Sign up
                                                         </NavLink>
                                                     </li>
-                                                </div>
+                                                </>
                                             )}
                                     </ul>
                                 </div>
