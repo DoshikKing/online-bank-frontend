@@ -93,7 +93,8 @@ export default class Transaction extends Component {
         this.form.validateAll();
 
         if (this.checkBtn.context._errors.length === 0) {
-            UserService.executeTransaction(this.state.from, this.state.to, parseFloat(this.state.amount), this.state.comment, this.type).then(
+            UserService.executeTransaction(this.state.from, this.state.to, parseFloat(this.state.amount), this.state.comment, this.type)
+                .then(
                 () => {
                     window.location.assign("/home");
                 },
@@ -102,8 +103,8 @@ export default class Transaction extends Component {
                         (error.response &&
                             error.response.data &&
                             error.response.data.message) ||
-                        error.message ||
-                        error.toString();
+                        error.comment ||
+                        error.toString() + this.state.message;
 
                     this.setState({
                         loading: false,

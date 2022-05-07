@@ -22,14 +22,15 @@ class AuthService {
             userId
         });
     }
-    // Переделать
-    // register(username, email, password) {
-    //     return api.post("/auth/signup", {
-    //         username,
-    //         email,
-    //         password
-    //     });
-    // }
+
+    register(login, password, repeat_password, registration_code) {
+        return api.post("/auth/signup", {
+            login,
+            password,
+            repass: repeat_password,
+            registration_code
+        });
+    }
 
     getCurrentUser() {
         return TokenService.getUser();

@@ -8,7 +8,7 @@ export default function Welcome() {
                         institutions and financial companies operating across all key areas of the financial markets.</p>
                 </div>
             </div>
-            <footer className="footer mt-auto py-3 bg-light">
+            <footer className="footer mt-auto py-3 bg-light rounded-3">
                 <div className="container">
                     <span className="text-muted">Zelenya-Novaya 10, 11
                         <br></br> Bank General Licence №199999

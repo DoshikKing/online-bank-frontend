@@ -7,6 +7,7 @@ import PassPropsHelper, {PassPropsHelperTransactions} from "../../helpers/PassPr
 
 import AuthService from "../../service/auth.service";
 import EventBus from "../../common/EventBus";
+import Registration from "../main/registration.component";
 
 class NavBarRoutes extends Component {
     constructor(props) {
@@ -97,8 +98,9 @@ class NavBarRoutes extends Component {
                     </div>
                     <Routes>
                         <Route exact path="/" element={<Welcome />} />
-                        <Route exact path="login" element={<Login/>} />
-                        <Route exact path="home" element={<Home/>} />
+                        <Route exact path="login" element={<Login />} />
+                        <Route exact path="registration" element={<Registration />} />
+                        <Route exact path="home" element={<Home />} />
                         <Route exact path="abstract" element={<PassPropsHelper /> } />
                         <Route exact path="transfer" element={<PassPropsHelperTransactions /> } />
                         <Route

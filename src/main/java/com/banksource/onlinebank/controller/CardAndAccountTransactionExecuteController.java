@@ -5,6 +5,7 @@ import com.banksource.onlinebank.components.BankCard;
 import com.banksource.onlinebank.components.CardTransaction;
 import com.banksource.onlinebank.components.Transaction;
 import com.banksource.onlinebank.payload.request.data.ExecutableTransactionRequestData;
+import com.banksource.onlinebank.payload.response.data.SimpleResponseData;
 import com.banksource.onlinebank.service.mainServices.AccountService;
 import com.banksource.onlinebank.service.mainServices.BankCardService;
 import com.banksource.onlinebank.service.mainServices.CardTransactionService;
@@ -43,12 +44,16 @@ public class CardAndAccountTransactionExecuteController {
 
 
     @PostMapping("/with_card")
-    public ResponseEntity payment_with_card(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
+    public ResponseEntity<?> payment_with_card(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
                           Authentication authentication){
-
+        SimpleResponseData simpleResponseData = new SimpleResponseData();
         try{
             Long debit_id = executableTransactionRequestData.getDebit_id();
             Long credit_id = executableTransactionRequestData.getCredit_id();
+            if(debit_id.equals(credit_id)){
+                simpleResponseData.setComment("Попытка перевести средства на ту же карту! Средства уже находятся на вашей карте!");
+                return ResponseEntity.internalServerError().body(simpleResponseData);
+            }
             float sum = executableTransactionRequestData.getAmount();
             String comment = executableTransactionRequestData.getComment();
 
@@ -59,7 +64,8 @@ public class CardAndAccountTransactionExecuteController {
 
                 BankCard bankCard_debit = bankCardService.getCardById(debit_id);
                 if(bankCard_debit.getSumm() - sum < 0){
-                    return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+                    simpleResponseData.setComment("Не хватает средств!");
+                    return ResponseEntity.badRequest().body(simpleResponseData);
                 }
                 float percentage = bankCard_debit.getTariff().getTariffPercentage()/100;
                 CardTransaction debitCardTransaction = new CardTransaction();
@@ -84,23 +90,29 @@ public class CardAndAccountTransactionExecuteController {
                 bankCardService.updateById(bankCard_debit.getSumm() - (sum + (sum * percentage)), bankCard_debit.getId());
                 bankCardService.updateById(bankCard_credit.getSumm() + sum, bankCard_credit.getId());
             } else {
-                return ResponseEntity.ok(HttpStatus.UNAUTHORIZED);
+                simpleResponseData.setComment("Непредвиденная ошибка! Перевод отменён.");
+                return ResponseEntity.internalServerError().body(simpleResponseData);
             }
             return ResponseEntity.ok(HttpStatus.OK);
 
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return ResponseEntity.ok(HttpStatus.INTERNAL_SERVER_ERROR);
+            simpleResponseData.setComment("Непредвиденная ошибка! Перевод отменён.");
+            return ResponseEntity.internalServerError().body(simpleResponseData);
         }
     }
 
     @PostMapping("with_account")
-    public ResponseEntity payment_with_account(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
+    public ResponseEntity<?> payment_with_account(@RequestBody ExecutableTransactionRequestData executableTransactionRequestData,
                                   Authentication authentication){
-
+        SimpleResponseData simpleResponseData = new SimpleResponseData();
         try {
             Long debit_id = executableTransactionRequestData.getDebit_id();
             Long credit_id = executableTransactionRequestData.getCredit_id();
+            if(debit_id.equals(credit_id)){
+                simpleResponseData.setComment("Попытка перевести средства на тот же счет! Средства уже находятся на вашем счету!");
+                return ResponseEntity.internalServerError().body(simpleResponseData);
+            }
             float sum = executableTransactionRequestData.getAmount();
             String comment = executableTransactionRequestData.getComment();
 
@@ -111,7 +123,8 @@ public class CardAndAccountTransactionExecuteController {
 
                 Account account_debit = accountService.findById(debit_id);
                 if(account_debit.getBalance() - sum < 0){
-                    ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+                    simpleResponseData.setComment("Не хватает средств!");
+                    return ResponseEntity.badRequest().body(simpleResponseData);
                 }
                 float percentage = account_debit.getTariff().getTariffPercentage()/100;
                 Transaction debitTransaction = new Transaction();
@@ -122,7 +135,9 @@ public class CardAndAccountTransactionExecuteController {
                 debitTransaction.setTransactionGroup(uuid);
                 debitTransaction.setComment(comment);
 
+
                 Account account_credit = accountService.findById(credit_id);
+
                 Transaction creditTransaction = new Transaction();
                 creditTransaction.setAccount(account_credit);
                 creditTransaction.setSumm(sum);
@@ -137,13 +152,15 @@ public class CardAndAccountTransactionExecuteController {
                 accountService.updateById(account_credit.getBalance() + sum, account_credit.getId());
 
             } else {
-                return ResponseEntity.ok(HttpStatus.UNAUTHORIZED);
+                simpleResponseData.setComment("Непредвиденная ошибка! Перевод отменён.");
+                return ResponseEntity.internalServerError().body(simpleResponseData);
             }
             return ResponseEntity.ok(HttpStatus.OK);
 
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return ResponseEntity.ok(HttpStatus.INTERNAL_SERVER_ERROR);
+            simpleResponseData.setComment("Непредвиденная ошибка! Перевод отменён.");
+            return ResponseEntity.internalServerError().body(simpleResponseData);
         }
     }
 }

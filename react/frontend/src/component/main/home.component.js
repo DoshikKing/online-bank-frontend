@@ -4,6 +4,9 @@ import UserService from "../../service/user.service";
 import EventBus from "../../common/EventBus";
 import { NavLink } from "react-router-dom";
 
+import person from "./assets/person.png"
+import card from "./assets/card.png"
+
 
 
 export default class Home extends Component {
@@ -62,17 +65,17 @@ export default class Home extends Component {
             (info) => {
                 return (
                     <div className="col">
-                        <img src="card.png" className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
+                        <img src={card} className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
                         <div className="card-body text-center">
                             <h4>{info.code} {info.paySystem}</h4>
                             <h5>Остаток: {info.summ} ₽</h5>
                             <h6> Срок: {info.statusTime}</h6>
-                            <button className="btn btn-primary btn-sm">
+                            <button className="btn btn-primary btn-sm home-btn">
                                 <NavLink className="nav-link link-light " to={"/abstract"} state={{id: info.id, type: "card"}}>
                                     Получить выписку
                                 </NavLink>
                             </button>
-                            <button className="btn btn-primary btn-sm">
+                            <button className="btn btn-primary btn-sm home-btn">
                                 <NavLink className="nav-link link-light " to={"/transfer"} state={{id: info.id, type: "card"}}>
                                     Перевести
                                 </NavLink>
@@ -89,17 +92,17 @@ export default class Home extends Component {
             (info) => {
                 return (
                     <div className="col">
-                        <img src="person.png" className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
+                        <img src={person} className="rounded mx-auto d-block" id="cardPlaceHolder" alt="..." />
                         <div className="card-body text-center">
                             <h4>{info.accountNumber}</h4>
                             <h5>Остаток: {info.balance} ₽</h5>
                             <h6> Срок: {info.statusTime}</h6>
-                            <button className="btn btn-primary btn-sm">
+                            <button className="btn btn-primary btn-sm home-btn">
                                 <NavLink className="nav-link link-light " to={"/abstract"} state={{id: info.id, type: "account"}}>
                                     Получить выписку
                                 </NavLink>
                             </button>
-                            <button className="btn btn-primary btn-sm">
+                            <button className="btn btn-primary btn-sm home-btn">
                                 <NavLink className="nav-link link-light " to={"/transfer"} state={{id: info.id, type: "account"}}>
                                     Перевести
                                 </NavLink>

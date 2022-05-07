@@ -75,7 +75,7 @@ export default class Abstract extends Component {
     render() {
         return (
             <div className="container">
-                <div className="table-responsive">
+                <div className="table-responsive back">
                     <table className="table table-striped table-sm">
                         <thead>
                         <tr>

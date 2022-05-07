@@ -46,3 +46,33 @@
   width: 200px;
   height: 200px;
 }
+
+.auth-card {
+  padding: 3%;
+  width: 50%;
+  height: 50%;
+}
+
+.card-btn {
+    margin-top: 3%;
+}
+.card-input {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3%;
+}
+
+.card-input-label {
+  margin-bottom: 1%;
+}
+
+.home-btn {
+  margin-top: 1%;
+  margin-right: 3%;
+}
+
+.item-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
