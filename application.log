@@ -897,3 +897,6 @@ Caused by: java.lang.IllegalStateException: Can't configure antMatchers after an
 1103701 [http-nio-8080-exec-10] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
 1126718 [http-nio-8080-exec-8] INFO  c.b.o.s.mainServices.AccountService –Found account with id 1
 1132095 [http-nio-8080-exec-1] INFO  c.b.o.s.m.BankCardService –Found bank card by id 2
+8182213 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean –Closing JPA EntityManagerFactory for persistence unit 'default'
+8182230 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown initiated...
+8182236 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource –HikariPool-1 - Shutdown completed.
